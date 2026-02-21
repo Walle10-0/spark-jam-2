@@ -12,11 +12,9 @@ var Form = "Alien"
 #Stuff for stored tokens
 var Shift_Tokens = []
 
-@onready var Shift_Selector = $ShiftSelector
+@export var Shift_Selector: Control
 @export var Text_More: Label
 @export var Text_Less: Label
-#@onready var Text_More = $MoreText
-#@onready var Text_Less = $LessText
 
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)

@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("Text_More", "Text_Less") groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("Shift_Selector", "Text_More", "Text_Less") groups=["Player"]]
 script = ExtResource("1_rkhd4")
-Text_More = NodePath("Camera2D/Control/MoreText")
-Text_Less = NodePath("Camera2D/Control/LessText")
+Shift_Selector = NodePath("HUD/Control/TextureRect")
+Text_More = NodePath("HUD/Control/MoreText")
+Text_Less = NodePath("HUD/Control/LessText")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530578927]
 shape = SubResource("RectangleShape2D_rkhd4")
@@ -22,7 +23,9 @@ sprite_frames = ExtResource("2_lrhn5")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]
 zoom = Vector2(2, 2)
 
-[node name="Control" type="Control" parent="Camera2D" unique_id=1168790707]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1272120522]
+
+[node name="Control" type="Control" parent="HUD" unique_id=1168790707]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,22 +35,29 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LessText" type="Label" parent="Camera2D/Control" unique_id=2127980695]
-layout_mode = 0
-offset_left = -276.0
-offset_top = -140.0
-offset_right = -183.0
-offset_bottom = -100.0
+[node name="LessText" type="Label" parent="HUD/Control" unique_id=2127980695]
+layout_mode = 1
+offset_right = 37.0
+offset_bottom = 23.0
 text = "+100"
 
-[node name="MoreText" type="Label" parent="Camera2D/Control" unique_id=953837976]
-layout_mode = 0
-offset_left = 146.0
-offset_top = -140.0
-offset_right = 186.0
-offset_bottom = -100.0
+[node name="MoreText" type="Label" parent="HUD/Control" unique_id=953837976]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -37.0
+offset_bottom = 23.0
+grow_horizontal = 0
 text = "+100"
+horizontal_alignment = 2
 
-[node name="ShiftSelector" type="Sprite2D" parent="." unique_id=1733805249]
-position = Vector2(160, -130)
+[node name="TextureRect" type="TextureRect" parent="HUD/Control" unique_id=592646330]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
 texture = ExtResource("3_lrhn5")
