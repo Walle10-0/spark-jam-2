@@ -333,6 +333,12 @@ func update_health():
 		if Health <= 0:
 			death()
 
+func damage(damage):
+	if Form == "Mouse":
+		Mouse_Health -= damage
+	else:
+		Health -= damage
+
 func death():
 	if is_dead == false:
 		is_dead = true
