@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bmn82w7ylihit"]
 
-[ext_resource type="SpriteFrames" uid="uid://bqvyccdrydnb" path="res://textures/placeholder/new_sprite_frames.tres" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dhy815ohiawy8" path="res://script/enemy.gd" id="1_md0e3"]
+[ext_resource type="SpriteFrames" uid="uid://dcmnacqaadswh" path="res://textures/robot/robot.tres" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 
@@ -17,4 +17,5 @@ shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D2" unique_id=1172810162]
 position = Vector2(0, -3.025)
-sprite_frames = ExtResource("1_7p1mj")
+sprite_frames = ExtResource("2_md0e3")
+animation = &"front-idle"
