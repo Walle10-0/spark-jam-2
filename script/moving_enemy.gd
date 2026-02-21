@@ -2,26 +2,32 @@ extends CharacterBody2D
 
 @export var SPEED = 150
 @export var FRICTION = 3
+@export var SIGHT = 120
 
-@export var Target: Node = null
+@export var Target: Node2D = null
 
 @export var animatedSprite: AnimatedSprite2D
 @export var Nav_Agent: NavigationAgent2D
 
 var bot_state: String = "_hostile"
 
-func _ready() -> void:
-	Nav_Agent.target_position = Target.global_position
-
 func _physics_process(delta: float) -> void:
-	Nav_Agent.target_position = Target.global_position
-	if Nav_Agent.is_navigation_finished():
-		return
+	if self.global_position.distance_to(Target.global_position) < SIGHT:
+		bot_state = "_hostile"
+		
+		# navigate to target
+		Nav_Agent.target_position = Target.global_position
+		
+		if not Nav_Agent.is_navigation_finished():
+			var current_agent_position = global_position
+			var next_path_position = Nav_Agent.get_next_path_position()
+			self.velocity += current_agent_position.direction_to(next_path_position) * SPEED * delta
+	else:
+		bot_state = "_passive"
 	
-	var current_agent_position = global_position
-	var next_path_position = Nav_Agent.get_next_path_position()
-	velocity += current_agent_position.direction_to(next_path_position) * SPEED * delta
-	velocity -= velocity * FRICTION * delta
+	# physics stuff
+	
+	self.velocity -= self.velocity * FRICTION * delta
 	
 	update_animation(velocity)
 	

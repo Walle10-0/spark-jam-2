@@ -170,7 +170,6 @@ path_desired_distance = 3.0
 target_desired_distance = 3.0
 path_postprocessing = 1
 avoidance_enabled = true
-debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=578274916]
 position = Vector2(0, -3.5)
