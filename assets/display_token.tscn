@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chbpuy7yf6vd8"]
+
+[ext_resource type="Script" uid="uid://dt2mvymscu1gx" path="res://script/display_token.gd" id="1_kf606"]
+
+[node name="Display_Token" type="Node2D" unique_id=193018896 groups=["Display Token"]]
+script = ExtResource("1_kf606")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2061474098]

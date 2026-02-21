@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://ba4o01gashu0"]
 
-[ext_resource type="PackedScene" uid="uid://s6xp3f58tljg" path="res://scenes/enemy-dynamic.tscn" id="1_dc6gq"]
+[ext_resource type="PackedScene" path="res://scenes/enemy-dynamic.tscn" id="1_dc6gq"]
 [ext_resource type="TileSet" uid="uid://bk4qosw1gwji" path="res://tilemap/new_tile_set.tres" id="1_t413n"]
 [ext_resource type="PackedScene" uid="uid://ck3nx800y8ld8" path="res://scenes/character.tscn" id="2_td60s"]
 [ext_resource type="PackedScene" uid="uid://bmn82w7ylihit" path="res://scenes/enemy.tscn" id="3_007yp"]
+[ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="4_dc6gq"]
 
 [sub_resource type="Curve2D" id="Curve2D_007yp"]
 _data = {
@@ -28,3 +29,59 @@ curve = SubResource("Curve2D_007yp")
 
 [node name="RigidBody2D2" parent="Path2D" unique_id=882145227 instance=ExtResource("3_007yp")]
 position = Vector2(-46, -140)
+
+[node name="ShiftToken" parent="." unique_id=241752677 instance=ExtResource("4_dc6gq")]
+position = Vector2(90, 24)
+Shift_ID = "Plant"
+
+[node name="ShiftToken2" parent="." unique_id=1356113480 instance=ExtResource("4_dc6gq")]
+position = Vector2(138, -18)
+Shift_ID = "Plant"
+
+[node name="ShiftToken3" parent="." unique_id=541840518 instance=ExtResource("4_dc6gq")]
+position = Vector2(176, 6)
+Shift_ID = "Robot"
+
+[node name="ShiftToken4" parent="." unique_id=2050588726 instance=ExtResource("4_dc6gq")]
+position = Vector2(196, -57)
+Shift_ID = "Plant"
+
+[node name="ShiftToken5" parent="." unique_id=221286490 instance=ExtResource("4_dc6gq")]
+position = Vector2(255, -113)
+Shift_ID = "Robot"
+
+[node name="ShiftToken6" parent="." unique_id=1482796449 instance=ExtResource("4_dc6gq")]
+position = Vector2(296, -84)
+Shift_ID = "Robot"
+
+[node name="ShiftToken7" parent="." unique_id=1232104326 instance=ExtResource("4_dc6gq")]
+position = Vector2(402, -74)
+Shift_ID = "Plant"
+
+[node name="ShiftToken8" parent="." unique_id=612053561 instance=ExtResource("4_dc6gq")]
+position = Vector2(384, -145)
+Shift_ID = "Plant"
+
+[node name="ShiftToken9" parent="." unique_id=1584693573 instance=ExtResource("4_dc6gq")]
+position = Vector2(314, -143)
+Shift_ID = "Plant"
+
+[node name="ShiftToken10" parent="." unique_id=2131187717 instance=ExtResource("4_dc6gq")]
+position = Vector2(465, -28)
+Shift_ID = "Robot"
+
+[node name="ShiftToken11" parent="." unique_id=371385681 instance=ExtResource("4_dc6gq")]
+position = Vector2(251, 69)
+Shift_ID = "Robot"
+
+[node name="ShiftToken12" parent="." unique_id=332302377 instance=ExtResource("4_dc6gq")]
+position = Vector2(326, 57)
+Shift_ID = "Plant"
+
+[node name="ShiftToken13" parent="." unique_id=813936156 instance=ExtResource("4_dc6gq")]
+position = Vector2(406, 76)
+Shift_ID = "Robot"
+
+[node name="ShiftToken14" parent="." unique_id=193140484 instance=ExtResource("4_dc6gq")]
+position = Vector2(493, 67)
+Shift_ID = "Plant"
