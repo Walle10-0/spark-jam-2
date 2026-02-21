@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bmn82w7ylihit"]
+
+[ext_resource type="SpriteFrames" uid="uid://bqvyccdrydnb" path="res://textures/placeholder/new_sprite_frames.tres" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dhy815ohiawy8" path="res://script/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+
+[node name="PathFollow2D" type="PathFollow2D" unique_id=1686006324]
+rotates = false
+script = ExtResource("1_md0e3")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=2141597305]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=990629788]
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D2" unique_id=1172810162]
+position = Vector2(0, -3.025)
+sprite_frames = ExtResource("1_7p1mj")
