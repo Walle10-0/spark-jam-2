@@ -13,7 +13,7 @@ var Form = "Alien"
 var Shift_Tokens = []
 
 @export var animatedSprite: AnimatedSprite2D
-@export var Shift_Selector: Control
+@export var Shift_Selector: Node2D
 @export var Text_More: Label
 @export var Text_Less: Label
 

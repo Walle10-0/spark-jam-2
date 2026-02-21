@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://crs0ddnvubvxv"]
+[gd_scene format=3 uid="uid://ck3nx800y8ld8"]
 
 [ext_resource type="Script" uid="uid://b7egqilcwhjwg" path="res://script/character.gd" id="1_rkhd4"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lrhn5"]
@@ -10,9 +10,13 @@ size = Vector2(10, 10)
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less") groups=["Player"]]
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
-Shift_Selector = NodePath("HUD/Control/TextureRect")
+Shift_Selector = NodePath("ShiftSelector")
 Text_More = NodePath("HUD/Control/MoreText")
 Text_Less = NodePath("HUD/Control/LessText")
+
+[node name="ShiftSelector" type="Sprite2D" parent="." unique_id=61616892]
+position = Vector2(214, -109)
+texture = ExtResource("3_lrhn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530578927]
 shape = SubResource("RectangleShape2D_rkhd4")
@@ -60,7 +64,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = 275.0
+offset_top = 749.0
+offset_right = 315.0
+offset_bottom = 789.0
 grow_horizontal = 0
 texture = ExtResource("3_lrhn5")
