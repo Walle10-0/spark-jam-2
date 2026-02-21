@@ -198,6 +198,7 @@ func update_animation(direction: Vector2):
 		if abs(direction.x) > abs(direction.y):
 			animatedSprite.flip_h = direction.x < 0
 			#animatedSprite.play("side")
+			animatedSprite.play(Form+"_side")
 		else:
 			animatedSprite.flip_h = false
 			if direction.y > 0:
