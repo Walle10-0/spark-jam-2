@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://yi6bymkehg81" path="res://assets/vent.gd" id="1_j2g8n"]
 [ext_resource type="Texture2D" uid="uid://cb3tj4wb7x3xu" path="res://textures/vent/Vent.png" id="1_srumv"]
 [ext_resource type="Texture2D" uid="uid://dcy5jbly7ftox" path="res://textures/vent/Vent_Highlighted.png" id="2_j2g8n"]
+[ext_resource type="Texture2D" uid="uid://50a2sopscd2d" path="res://textures/UI/Pointer.png" id="4_cfrwb"]
+[ext_resource type="FontFile" uid="uid://munnv1c323j5" path="res://assets/Early GameBoy.ttf" id="5_1rj8g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfrwb"]
 animations = [{
@@ -26,7 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srumv"]
 size = Vector2(15, 9)
 
-[node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable"]]
+[node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable", "Vent"]]
 script = ExtResource("1_j2g8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886001442]
@@ -37,3 +39,26 @@ sprite_frames = SubResource("SpriteFrames_cfrwb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=657073908]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_srumv")
+
+[node name="Right Arrow" type="Sprite2D" parent="." unique_id=2128716277]
+position = Vector2(0, -40)
+texture = ExtResource("4_cfrwb")
+
+[node name="Right Label" type="Label" parent="." unique_id=1242314115]
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = -7.0
+theme_override_fonts/font = ExtResource("5_1rj8g")
+text = "D"
+
+[node name="Left Arrow" type="Sprite2D" parent="." unique_id=1556968021]
+position = Vector2(34, -42)
+texture = ExtResource("4_cfrwb")
+
+[node name="Left Label" type="Label" parent="." unique_id=1502916902]
+offset_left = 34.0
+offset_top = -29.0
+offset_right = 74.0
+offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("5_1rj8g")
+text = "A"
