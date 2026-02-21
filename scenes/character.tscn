@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://ck3nx800y8ld8"]
+[gd_scene format=3 uid="uid://crs0ddnvubvxv"]
 
-[ext_resource type="SpriteFrames" uid="uid://bqvyccdrydnb" path="res://textures/placeholder/new_sprite_frames.tres" id="1_agfs1"]
 [ext_resource type="Script" uid="uid://b7egqilcwhjwg" path="res://script/character.gd" id="1_rkhd4"]
+[ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lrhn5"]
 [ext_resource type="Texture2D" uid="uid://t0vcd4iobywq" path="res://textures/UI/Shift_Selector.png" id="3_lrhn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
+size = Vector2(10, 10)
 
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 groups=["Player"]]
 script = ExtResource("1_rkhd4")
@@ -13,26 +14,38 @@ script = ExtResource("1_rkhd4")
 shape = SubResource("RectangleShape2D_rkhd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=330401231]
-position = Vector2(0, -3.025)
-sprite_frames = ExtResource("1_agfs1")
+position = Vector2(0, -9.4)
+sprite_frames = ExtResource("2_lrhn5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]
 zoom = Vector2(2, 2)
 
-[node name="ShiftSelector" type="Sprite2D" parent="." unique_id=1733805249]
-position = Vector2(160, -130)
-texture = ExtResource("3_lrhn5")
+[node name="Control" type="Control" parent="Camera2D" unique_id=1168790707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="LessText" type="RichTextLabel" parent="." unique_id=1335340369]
+[node name="LessText" type="RichTextLabel" parent="Camera2D/Control" unique_id=1335340369]
+layout_mode = 0
 offset_left = -276.0
 offset_top = -140.0
 offset_right = -183.0
 offset_bottom = -100.0
 text = "+100"
 
-[node name="MoreText" type="RichTextLabel" parent="." unique_id=1759722122]
+[node name="MoreText" type="RichTextLabel" parent="Camera2D/Control" unique_id=1759722122]
+layout_mode = 0
 offset_left = 146.0
 offset_top = -140.0
 offset_right = 186.0
 offset_bottom = -100.0
 text = "+100"
+
+[node name="ShiftSelector" type="Sprite2D" parent="." unique_id=1733805249]
+position = Vector2(160, -130)
+texture = ExtResource("3_lrhn5")

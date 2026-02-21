@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://ba4o01gashu0"]
 
-[ext_resource type="PackedScene" uid="uid://s6xp3f58tljg" path="res://scenes/enemy-dynamic.tscn" id="1_dc6gq"]
+[ext_resource type="PackedScene" path="res://scenes/enemy-dynamic.tscn" id="1_dc6gq"]
 [ext_resource type="TileSet" uid="uid://bk4qosw1gwji" path="res://tilemap/new_tile_set.tres" id="1_t413n"]
-[ext_resource type="PackedScene" uid="uid://ck3nx800y8ld8" path="res://scenes/character.tscn" id="2_td60s"]
-[ext_resource type="PackedScene" uid="uid://bmn82w7ylihit" path="res://scenes/enemy.tscn" id="3_007yp"]
-[ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="4_dc6gq"]
+[ext_resource type="PackedScene" uid="uid://crs0ddnvubvxv" path="res://scenes/character.tscn" id="2_td60s"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="3_007yp"]
+[ext_resource type="PackedScene" path="res://assets/shift_token.tscn" id="4_dc6gq"]
 
 [sub_resource type="Curve2D" id="Curve2D_007yp"]
 _data = {
