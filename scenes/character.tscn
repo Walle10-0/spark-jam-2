@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_rkhd4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=330401231]
 position = Vector2(0, -9.4)
 sprite_frames = ExtResource("2_lrhn5")
-animation = &"back"
+animation = &"Mouse_back"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]

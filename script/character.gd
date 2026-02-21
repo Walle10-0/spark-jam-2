@@ -193,7 +193,7 @@ func update_token_display():
 
 func update_animation(direction: Vector2):
 	if direction.length() < 1:
-		animatedSprite.play("default")
+		animatedSprite.play(Form+"_default")
 	else:
 		if abs(direction.x) > abs(direction.y):
 			animatedSprite.flip_h = direction.x < 0
@@ -201,8 +201,8 @@ func update_animation(direction: Vector2):
 		else:
 			animatedSprite.flip_h = false
 			if direction.y > 0:
-				animatedSprite.play("front")
+				animatedSprite.play(Form+"_front")
 			else:
-				animatedSprite.play("back")
+				animatedSprite.play(Form+"_back")
 		
 		animatedSprite.speed_scale = direction.length() / 10

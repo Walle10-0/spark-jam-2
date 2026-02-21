@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://o8ra2oloxpak" path="res://assets/Alien_Back.png" id="1_8bo27"]
 [ext_resource type="Texture2D" uid="uid://cffe01eoco87o" path="res://assets/Alien_Front.png" id="2_hrm40"]
+[ext_resource type="Texture2D" uid="uid://b7m5jd4e8wnmc" path="res://textures/Shifts/Shift_Mouse.png" id="3_hrm40"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rwis"]
 atlas = ExtResource("1_8bo27")
@@ -99,7 +100,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_m13tt")
 }],
 "loop": true,
-"name": &"back",
+"name": &"Alien_back",
 "speed": 3.0
 }, {
 "frames": [{
@@ -107,7 +108,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_b46h6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Alien_default",
 "speed": 5.0
 }, {
 "frames": [{
@@ -136,6 +137,38 @@ animations = [{
 "texture": SubResource("AtlasTexture_pi5vg")
 }],
 "loop": true,
-"name": &"front",
+"name": &"Alien_front",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hrm40")
+}],
+"loop": true,
+"name": &"Mouse_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hrm40")
+}],
+"loop": true,
+"name": &"Mouse_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hrm40")
+}],
+"loop": true,
+"name": &"Mouse_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b46h6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
