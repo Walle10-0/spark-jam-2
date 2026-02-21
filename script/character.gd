@@ -320,7 +320,7 @@ func update_health():
 		for Heart in Mouse_Health_List:
 			if Heart.ID+1 <= Mouse_Health:
 				Heart.visible = true
-		
+				Heart.Visual.play("mouse")
 		#Check for death
 		if Mouse_Health <= 0:
 			death()
@@ -328,6 +328,7 @@ func update_health():
 		for Heart in Health_List:
 			if Heart.ID+1 <= Health:
 				Heart.visible = true
+				Heart.Visual.play("heart")
 		
 		#Check for death
 		if Health <= 0:
