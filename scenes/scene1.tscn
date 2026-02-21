@@ -1,18 +1,11 @@
 [gd_scene format=4 uid="uid://ba4o01gashu0"]
 
 [ext_resource type="PackedScene" path="res://scenes/enemy-dynamic.tscn" id="1_dc6gq"]
-[ext_resource type="PackedScene" uid="uid://ck3nx800y8ld8" path="res://scenes/character.tscn" id="2_td60s"]
-[ext_resource type="PackedScene" uid="uid://bmn82w7ylihit" path="res://scenes/enemy.tscn" id="3_007yp"]
-[ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="4_dc6gq"]
-[ext_resource type="PackedScene" uid="uid://mcal87dhudeh" path="res://assets/vent.tscn" id="6_ogaks"]
-[ext_resource type="PackedScene" uid="uid://cvgkbm1of4jt0" path="res://assets/moving_enemy.tscn" id="7_s8jmr"]
+[ext_resource type="PackedScene" uid="uid://crs0ddnvubvxv" path="res://scenes/character.tscn" id="2_td60s"]
+[ext_resource type="PackedScene" path="res://assets/shift_token.tscn" id="4_dc6gq"]
+[ext_resource type="PackedScene" path="res://assets/vent.tscn" id="6_ogaks"]
+[ext_resource type="PackedScene" path="res://assets/moving_enemy.tscn" id="7_s8jmr"]
 [ext_resource type="Texture2D" uid="uid://db8jo4oqo4o1c" path="res://tilemap/Lab_Tiles.png" id="8_suuxx"]
-
-[sub_resource type="Curve2D" id="Curve2D_007yp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -46, -140, 0, 0, 0, 0, 105, -123, 0, 0, 0, 0, 165, -62, 0, 0, 0, 0, 146, 44, 0, 0, 0, 0, 211, 114)
-}
-point_count = 5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_suuxx"]
 vertices = PackedVector2Array(16, 16, -8, 16, -8, -16, 16, -16)
@@ -131,12 +124,6 @@ player = NodePath("../RigidBody2D")
 [node name="RigidBody2D" parent="." unique_id=32253595 instance=ExtResource("2_td60s")]
 z_index = 5
 position = Vector2(-425, 107)
-
-[node name="Path2D" type="Path2D" parent="." unique_id=1067496519]
-curve = SubResource("Curve2D_007yp")
-
-[node name="RigidBody2D2" parent="Path2D" unique_id=882145227 instance=ExtResource("3_007yp")]
-position = Vector2(-46, -140)
 
 [node name="ShiftToken" parent="." unique_id=241752677 instance=ExtResource("4_dc6gq")]
 position = Vector2(90, 24)

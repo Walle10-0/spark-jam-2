@@ -26,6 +26,7 @@ var Shift_Tokens = []
 @export var Interaction_Detector: Node2D
 @export var Speech_Bubble: Node
 @export var Speech_Timeout: Node
+@export var camera: Camera2D
 
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)
@@ -156,6 +157,7 @@ func _physics_process(delta: float) -> void:
 			if Vent.Sequence_ID == Vent_Index:
 				print(Vent.Sequence_ID)
 				position = Vent.position
+	#updateCamera(delta)
 
 func initialize_display_tokens():
 	var Display_Token = preload("res://assets/display_token.tscn")
@@ -344,3 +346,9 @@ func death():
 	if is_dead == false:
 		is_dead = true
 		print("You fucking died")
+
+func updateCamera(delta):
+	if Form == "Mouse":
+		camera.zoom += (Vector2.ONE * 6 - camera.zoom) * delta
+	else:
+		camera.zoom += (Vector2.ONE * 2 - camera.zoom) * delta

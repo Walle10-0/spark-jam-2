@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ck3nx800y8ld8"]
+[gd_scene format=3 uid="uid://crs0ddnvubvxv"]
 
 [ext_resource type="Script" uid="uid://b7egqilcwhjwg" path="res://script/character.gd" id="1_rkhd4"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lrhn5"]
@@ -11,7 +11,7 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrhn5"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout") groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera") groups=["Player"]]
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
 Shift_Selector = NodePath("ShiftSelector")
@@ -20,6 +20,7 @@ Text_Less = NodePath("HUD/Control/LessText")
 Interaction_Detector = NodePath("Interaction Detector")
 Speech_Bubble = NodePath("Speech Bubble")
 Speech_Timeout = NodePath("Speech Timer")
+camera = NodePath("Camera2D")
 
 [node name="ShiftSelector" type="Sprite2D" parent="." unique_id=61616892]
 position = Vector2(214, -109)

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cvgkbm1of4jt0"]
+[gd_scene format=3 uid="uid://f0s1glje8vf0"]
 
 [ext_resource type="Texture2D" uid="uid://b1j4yqm2ndiuq" path="res://textures/robot/robot.png" id="1_kusdj"]
-[ext_resource type="Script" uid="uid://douecy5oxit4y" path="res://script/moving_enemy.gd" id="1_nwrgi"]
+[ext_resource type="Script" path="res://script/moving_enemy.gd" id="1_nwrgi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66mqk"]
 atlas = ExtResource("1_kusdj")
@@ -161,7 +161,7 @@ script = ExtResource("1_nwrgi")
 [node name="Visual" type="AnimatedSprite2D" parent="." unique_id=2128224474]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_m3gcw")
-animation = &"side_passive"
+animation = &"front_hostile"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1843618484]
 path_desired_distance = 3.0
