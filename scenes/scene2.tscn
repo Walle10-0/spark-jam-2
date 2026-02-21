@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d2m1xhgp0ni8"]
 
-[ext_resource type="PackedScene" uid="uid://crs0ddnvubvxv" path="res://scenes/character.tscn" id="2_efo67"]
+[ext_resource type="PackedScene" uid="uid://crs0ddnvubvxv" path="res://assets/character.tscn" id="2_efo67"]
 [ext_resource type="PackedScene" path="res://assets/shift_token.tscn" id="3_7oowp"]
 [ext_resource type="PackedScene" path="res://assets/vent.tscn" id="4_wjre0"]
 [ext_resource type="PackedScene" uid="uid://f0s1glje8vf0" path="res://assets/moving_enemy.tscn" id="5_c26eq"]
