@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ck3nx800y8ld8" path="res://scenes/character.tscn" id="2_td60s"]
 [ext_resource type="PackedScene" uid="uid://bmn82w7ylihit" path="res://scenes/enemy.tscn" id="3_007yp"]
 [ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="4_dc6gq"]
+[ext_resource type="PackedScene" uid="uid://mcal87dhudeh" path="res://assets/vent.tscn" id="6_ogaks"]
 
 [sub_resource type="Curve2D" id="Curve2D_007yp"]
 _data = {
@@ -87,3 +88,6 @@ Shift_ID = "Robot"
 [node name="ShiftToken14" parent="." unique_id=193140484 instance=ExtResource("4_dc6gq")]
 position = Vector2(493, 67)
 Shift_ID = "Plant"
+
+[node name="Vent" parent="." unique_id=99067170 instance=ExtResource("6_ogaks")]
+position = Vector2(130, 25)
