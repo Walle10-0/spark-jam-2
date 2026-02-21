@@ -17,6 +17,8 @@ var Shift_Tokens = []
 @export var Text_More: Label
 @export var Text_Less: Label
 @export var Interaction_Detector: Node2D
+@export var Speech_Bubble: Node
+@export var Speech_Timeout: Node
 
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)
@@ -28,6 +30,7 @@ var Is_Overlapping = true
 var First_Entry = true
 
 func _ready() -> void:
+	Speech_Bubble.visible = false
 	initialize_display_tokens()
 	update_token_display()
 
@@ -225,8 +228,13 @@ func check_interactables():
 		Is_Overlapping = true
 	if Is_Overlapping == true:
 		if First_Entry == true:
-			print("BOOM")
+			character_say("E - Interact")
 			First_Entry = false
 
 func character_say(speech):
-	pass
+	Speech_Bubble.visible = true
+	Speech_Bubble.text = speech
+	Speech_Timeout.start()
+
+func _on_speech_timer_timeout() -> void:
+	Speech_Bubble.visible = false
