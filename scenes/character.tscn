@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("Shift_Selector", "Text_More", "Text_Less") groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less") groups=["Player"]]
 script = ExtResource("1_rkhd4")
+animatedSprite = NodePath("AnimatedSprite2D")
 Shift_Selector = NodePath("HUD/Control/TextureRect")
 Text_More = NodePath("HUD/Control/MoreText")
 Text_Less = NodePath("HUD/Control/LessText")
@@ -19,6 +20,8 @@ shape = SubResource("RectangleShape2D_rkhd4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=330401231]
 position = Vector2(0, -9.4)
 sprite_frames = ExtResource("2_lrhn5")
+animation = &"back"
+autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]
 zoom = Vector2(2, 2)

@@ -12,6 +12,7 @@ var Form = "Alien"
 #Stuff for stored tokens
 var Shift_Tokens = []
 
+@export var animatedSprite: AnimatedSprite2D
 @export var Shift_Selector: Control
 @export var Text_More: Label
 @export var Text_Less: Label
@@ -108,6 +109,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x +=  speed * delta
 	velocity -= velocity * delta * friction
 	move_and_slide()
+	update_animation(velocity)
 
 func initialize_display_tokens():
 	var Display_Token = preload("res://assets/display_token.tscn")
@@ -188,3 +190,19 @@ func update_token_display():
 				Child.visible = false
 			Child.position = Base_Position + Vector2(SPACING*Child.ID,0)
 			Child.update_texture()
+
+func update_animation(direction: Vector2):
+	if direction.length() < 1:
+		animatedSprite.play("default")
+	else:
+		if abs(direction.x) > abs(direction.y):
+			animatedSprite.flip_h = direction.x < 0
+			#animatedSprite.play("side")
+		else:
+			animatedSprite.flip_h = false
+			if direction.y > 0:
+				animatedSprite.play("front")
+			else:
+				animatedSprite.play("back")
+		
+		animatedSprite.speed_scale = direction.length() / 10

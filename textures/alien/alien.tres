@@ -100,7 +100,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -136,6 +136,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_pi5vg")
 }],
 "loop": true,
-"name": &"forward",
-"speed": 5.0
+"name": &"front",
+"speed": 3.0
 }]
