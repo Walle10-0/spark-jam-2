@@ -7,8 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("Text_More", "Text_Less") groups=["Player"]]
 script = ExtResource("1_rkhd4")
+Text_More = NodePath("Camera2D/Control/MoreText")
+Text_Less = NodePath("Camera2D/Control/LessText")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530578927]
 shape = SubResource("RectangleShape2D_rkhd4")
@@ -30,7 +32,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LessText" type="RichTextLabel" parent="Camera2D/Control" unique_id=1335340369]
+[node name="LessText" type="Label" parent="Camera2D/Control" unique_id=2127980695]
 layout_mode = 0
 offset_left = -276.0
 offset_top = -140.0
@@ -38,7 +40,7 @@ offset_right = -183.0
 offset_bottom = -100.0
 text = "+100"
 
-[node name="MoreText" type="RichTextLabel" parent="Camera2D/Control" unique_id=1759722122]
+[node name="MoreText" type="Label" parent="Camera2D/Control" unique_id=953837976]
 layout_mode = 0
 offset_left = 146.0
 offset_top = -140.0
