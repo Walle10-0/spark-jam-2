@@ -29,94 +29,100 @@ var ShiftOver = 0
 var Is_Overlapping = true
 var First_Entry = true
 
+var Vent_Mode = false
+
 func _ready() -> void:
 	Speech_Bubble.visible = false
 	initialize_display_tokens()
 	update_token_display()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Shift"):
-		use_shift_token(Selector_Index)
-	if Input.is_action_just_pressed("button_1"):
-		if Shift_Tokens.size()>=1:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(0)
-	elif Input.is_action_just_pressed("button_2"):
-		if Shift_Tokens.size()>=2:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(1)
-	elif Input.is_action_just_pressed("button_3"):
-		if Shift_Tokens.size()>=3:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(2)
-	elif Input.is_action_just_pressed("button_4"):
-		if Shift_Tokens.size()>=4:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(3)
-	elif Input.is_action_just_pressed("button_5"):
-		if Shift_Tokens.size()>=5:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(4)
-	elif Input.is_action_just_pressed("button_6"):
-		if Shift_Tokens.size()>=6:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(5)
-	elif Input.is_action_just_pressed("button_7"):
-		if Shift_Tokens.size()>=7:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(6)
-	elif Input.is_action_just_pressed("button_8"):
-		if Shift_Tokens.size()>=8:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(7)
-	elif Input.is_action_just_pressed("button_9"):
-		if Shift_Tokens.size()>=9:
-			if Selector_Index > 8:
-				use_shift_token(Selector_Index-8)
-			else:
-				use_shift_token(8)
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if event.is_released():
-				if Selector_Index < Shift_Tokens.size()-1:
-					Selector_Index += 1
-				update_token_display()
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if event.is_released():
-				Selector_Index -= 1
-				if Selector_Index <= 0:
-					Selector_Index = 0
-				update_token_display()
+	if Input.is_action_just_pressed("Interact"):
+		interaction_check()
+	if Vent_Mode == false:
+		if Input.is_action_just_pressed("Shift"):
+			use_shift_token(Selector_Index)
+		if Input.is_action_just_pressed("button_1"):
+			if Shift_Tokens.size()>=1:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(0)
+		elif Input.is_action_just_pressed("button_2"):
+			if Shift_Tokens.size()>=2:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(1)
+		elif Input.is_action_just_pressed("button_3"):
+			if Shift_Tokens.size()>=3:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(2)
+		elif Input.is_action_just_pressed("button_4"):
+			if Shift_Tokens.size()>=4:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(3)
+		elif Input.is_action_just_pressed("button_5"):
+			if Shift_Tokens.size()>=5:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(4)
+		elif Input.is_action_just_pressed("button_6"):
+			if Shift_Tokens.size()>=6:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(5)
+		elif Input.is_action_just_pressed("button_7"):
+			if Shift_Tokens.size()>=7:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(6)
+		elif Input.is_action_just_pressed("button_8"):
+			if Shift_Tokens.size()>=8:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(7)
+		elif Input.is_action_just_pressed("button_9"):
+			if Shift_Tokens.size()>=9:
+				if Selector_Index > 8:
+					use_shift_token(Selector_Index-8)
+				else:
+					use_shift_token(8)
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				if event.is_released():
+					if Selector_Index < Shift_Tokens.size()-1:
+						Selector_Index += 1
+					update_token_display()
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				if event.is_released():
+					Selector_Index -= 1
+					if Selector_Index <= 0:
+						Selector_Index = 0
+					update_token_display()
 
 func _physics_process(delta: float) -> void:
 	check_interactables()
-	if Input.is_action_pressed("up"):
-		velocity.y +=  -speed * delta
-	if Input.is_action_pressed("down"):
-		velocity.y +=  speed * delta
-	if Input.is_action_pressed("left"):
-		velocity.x +=  -speed * delta
-	if Input.is_action_pressed("right"):
-		velocity.x +=  speed * delta
-	velocity -= velocity * delta * friction
-	move_and_slide()
-	update_animation(velocity)
+	if Vent_Mode == false:
+		if Input.is_action_pressed("up"):
+			velocity.y +=  -speed * delta
+		if Input.is_action_pressed("down"):
+			velocity.y +=  speed * delta
+		if Input.is_action_pressed("left"):
+			velocity.x +=  -speed * delta
+		if Input.is_action_pressed("right"):
+			velocity.x +=  speed * delta
+		velocity -= velocity * delta * friction
+		move_and_slide()
+		update_animation(velocity)
 
 func initialize_display_tokens():
 	var Display_Token = preload("res://assets/display_token.tscn")
@@ -131,7 +137,6 @@ func get_shift_token(Shift_ID):
 
 func use_shift_token(Remove_Index):
 	Form = Shift_Tokens[Remove_Index]
-	print(Form)
 	if Selector_Index == Shift_Tokens.size()-1:
 		Shift_Tokens.remove_at(Remove_Index)
 		Selector_Index -= 1
@@ -238,3 +243,14 @@ func character_say(speech):
 
 func _on_speech_timer_timeout() -> void:
 	Speech_Bubble.visible = false
+
+func interaction_check():
+	var Interaction_Entity
+	if Is_Overlapping == true:
+		for Area in Interaction_Detector.get_overlapping_areas():
+			if Area.get_parent().is_in_group("Interactable"):
+				Interaction_Entity = Area.get_parent()
+		if Interaction_Entity.Can_Interact_With.has(Form):
+			Interaction_Entity.interaction()
+		else:
+			character_say(Interaction_Entity.Fail_Speech)
