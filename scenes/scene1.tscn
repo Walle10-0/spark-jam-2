@@ -24,9 +24,6 @@ position = Vector2(76.07, 0)
 player = NodePath("../RigidBody2D")
 
 [node name="RigidBody2D" parent="." unique_id=32253595 instance=ExtResource("2_td60s")]
-speed = null
-friction = null
-identity = null
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1067496519]
 curve = SubResource("Curve2D_007yp")

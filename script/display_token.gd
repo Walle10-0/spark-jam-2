@@ -7,4 +7,5 @@ extends Node2D
 @onready var Visual = $Sprite2D
 
 func update_texture():
-	Visual.texture = load("res://textures/shifts/Shift_"+Shift_ID+".png")
+	if Shift_ID != "":
+		Visual.texture = load("res://textures/Shifts/Shift_"+Shift_ID+".png")

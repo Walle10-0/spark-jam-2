@@ -7,7 +7,8 @@ extends Node2D
 @onready var Visual = $Sprite2D
 
 func _ready():
-	Visual.texture = load("res://textures/shifts/Shift_"+Shift_ID+".png")
+	if Shift_ID != "":
+		Visual.texture = load("res://textures/Shifts/Shift_"+Shift_ID+".png")
 
 func _on_collider_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
