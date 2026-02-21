@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cffe01eoco87o"
-path="res://.godot/imported/Alien_Front.png-7b27d4e9a535414f0eabfd22fd19ea21.ctex"
+uid="uid://cdxdpn1ldoi8b"
+path="res://.godot/imported/Moonwalk_Side.png-3cf16da3a503c6ed8b89734ba5086f75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Alien_Front.png"
-dest_files=["res://.godot/imported/Alien_Front.png-7b27d4e9a535414f0eabfd22fd19ea21.ctex"]
+source_file="res://textures/alien/Moonwalk_Side.png"
+dest_files=["res://.godot/imported/Moonwalk_Side.png-3cf16da3a503c6ed8b89734ba5086f75.ctex"]
 
 [params]
 
