@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://o8ra2oloxpak" path="res://textures/alien/Alien_Back.png" id="1_lekuh"]
 [ext_resource type="Texture2D" uid="uid://cffe01eoco87o" path="res://textures/alien/Alien_Front.png" id="2_j4duu"]
 [ext_resource type="Texture2D" uid="uid://327h0jkp1sfo" path="res://textures/alien/Alien_Side.png" id="3_3058f"]
-[ext_resource type="Texture2D" uid="uid://b7m5jd4e8wnmc" path="res://textures/Shifts/Shift_Mouse.png" id="3_hrm40"]
 [ext_resource type="Texture2D" uid="uid://cdxdpn1ldoi8b" path="res://textures/alien/Moonwalk_Side.png" id="3_j4duu"]
 [ext_resource type="Texture2D" uid="uid://b1j4yqm2ndiuq" path="res://textures/robot/robot.png" id="4_7rwis"]
+[ext_resource type="Texture2D" uid="uid://8mtpo4bg37qg" path="res://textures/Shifts/Maus_Back.png" id="5_bkwru"]
 [ext_resource type="Texture2D" uid="uid://dmjwd6mjcoyna" path="res://textures/Shifts/Plant.png" id="6_3058f"]
+[ext_resource type="Texture2D" uid="uid://bs15yafdb8rdy" path="res://textures/Shifts/Maus_Front.png" id="6_s8afp"]
+[ext_resource type="Texture2D" uid="uid://c36w0cbthygc8" path="res://textures/Shifts/Maus_Side.png" id="7_m13tt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rwis"]
 atlas = ExtResource("1_lekuh")
@@ -320,7 +322,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hrm40")
+"texture": ExtResource("5_bkwru")
 }],
 "loop": true,
 "name": &"Mouse_back",
@@ -328,7 +330,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hrm40")
+"texture": ExtResource("6_s8afp")
 }],
 "loop": true,
 "name": &"Mouse_default",
@@ -336,7 +338,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hrm40")
+"texture": ExtResource("6_s8afp")
 }],
 "loop": true,
 "name": &"Mouse_front",
@@ -344,7 +346,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hrm40")
+"texture": ExtResource("7_m13tt")
 }],
 "loop": true,
 "name": &"Mouse_side",

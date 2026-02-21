@@ -11,13 +11,15 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrhn5"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector") groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout") groups=["Player"]]
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
 Shift_Selector = NodePath("ShiftSelector")
 Text_More = NodePath("HUD/Control/MoreText")
 Text_Less = NodePath("HUD/Control/LessText")
 Interaction_Detector = NodePath("Interaction Detector")
+Speech_Bubble = NodePath("Speech Bubble")
+Speech_Timeout = NodePath("Speech Timer")
 
 [node name="ShiftSelector" type="Sprite2D" parent="." unique_id=61616892]
 position = Vector2(214, -109)
@@ -29,7 +31,7 @@ shape = SubResource("RectangleShape2D_rkhd4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=330401231]
 position = Vector2(0, -9.4)
 sprite_frames = ExtResource("2_lrhn5")
-animation = &"Alien_default"
+animation = &"Mouse_back"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]
@@ -89,3 +91,8 @@ texture = ExtResource("3_lrhn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Detector" unique_id=885718688]
 shape = SubResource("RectangleShape2D_lrhn5")
+
+[node name="Speech Timer" type="Timer" parent="." unique_id=109468494]
+one_shot = true
+
+[connection signal="timeout" from="Speech Timer" to="." method="_on_speech_timer_timeout"]
