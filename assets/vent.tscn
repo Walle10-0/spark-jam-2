@@ -26,7 +26,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srumv"]
 size = Vector2(15, 9)
 
-[node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable"]]
+[node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable", "Vent"]]
 script = ExtResource("1_j2g8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886001442]

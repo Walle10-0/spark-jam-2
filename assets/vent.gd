@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var Vent_ID = ""
+@export var Sequence_ID = 0
+@export var Maximum_ID = 0
+
 @export var Is_Overlapping = false
 
 @export var Fail_Speech = "I'm too big!"
@@ -24,7 +28,15 @@ func interaction():
 			Player = Thing.get_parent()
 	if Player.Vent_Mode == false:
 		Player.Vent_Mode = true
-		print("VENTED")
+		Player.Vents = []
+		for Child in get_parent().get_children():
+			if Child.is_in_group("Vent"):
+				if Child.Vent_ID == Vent_ID:
+					Player.Vents.append(Child)
+					if Child.Sequence_ID > Maximum_ID:
+						Maximum_ID = Child.Sequence_ID
+		Player.Vent_Index = Sequence_ID
+		Player.Vent_Max = Maximum_ID
 	else:
 		Player.Vent_Mode = false
 		print("UNVENTEDd")

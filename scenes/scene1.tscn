@@ -91,3 +91,18 @@ Shift_ID = "Plant"
 
 [node name="Vent" parent="." unique_id=99067170 instance=ExtResource("6_ogaks")]
 position = Vector2(130, 25)
+Vent_ID = "Vent"
+
+[node name="Vent2" parent="." unique_id=1591580986 instance=ExtResource("6_ogaks")]
+position = Vector2(208, 74)
+Vent_ID = "Vent"
+Sequence_ID = 1
+
+[node name="Vent3" parent="." unique_id=1161780770 instance=ExtResource("6_ogaks")]
+position = Vector2(215, 6)
+Vent_ID = "Vent"
+Sequence_ID = 2
+
+[node name="Vent4" parent="." unique_id=1593111814 instance=ExtResource("6_ogaks")]
+position = Vector2(201, 163)
+Vent_ID = "vance"

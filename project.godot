@@ -21,6 +21,8 @@ Player=""
 "<<<<<<<Updatedupstream[gui]theme/custom_font"="uid://munnv1c323j5"
 Interactable=""
 "Display Token"=""
+Vent=""
+Heart=""
 
 [gui]
 

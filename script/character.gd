@@ -7,6 +7,13 @@ enum Identity {Default, Plant, Mouse, Robot, Turrent}
 @export var friction: float = 4
 @export var identity: Identity = Identity.Default
 
+var is_dead = false
+
+var Health = 3
+var Health_List = []
+var Mouse_Health = 1
+var Mouse_Health_List = []
+
 var Form = "Alien"
 
 #Stuff for stored tokens
@@ -26,14 +33,20 @@ const SPACING = 40
 var Selector_Index = 0
 var ShiftOver = 0
 
+var Health_Position = Base_Position + Vector2(-SPACING,50)
+
 var Is_Overlapping = true
 var First_Entry = true
 
 var Vent_Mode = false
+var Vents = []
+var Vent_Index = 0
+var Vent_Max = 0
 
 func _ready() -> void:
 	Speech_Bubble.visible = false
 	initialize_display_tokens()
+	initialize_health()
 	update_token_display()
 
 func _input(event: InputEvent) -> void:
@@ -111,7 +124,9 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	check_interactables()
+	update_health()
 	if Vent_Mode == false:
+		visible = true
 		if Input.is_action_pressed("up"):
 			velocity.y +=  -speed * delta
 		if Input.is_action_pressed("down"):
@@ -121,8 +136,24 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("right"):
 			velocity.x +=  speed * delta
 		velocity -= velocity * delta * friction
-		move_and_slide()
+		if Form != "Plant":
+			move_and_slide()
 		update_animation(velocity)
+	else:
+		visible = false
+		if Input.is_action_just_pressed("left"):
+			Vent_Index -= 1
+			print("GOGOGO")
+		if Input.is_action_just_pressed("right"):
+			Vent_Index += 1
+		if Vent_Index < 0:
+			Vent_Index = Vent_Max
+		if Vent_Index > Vent_Max:
+			Vent_Index = 0
+		for Vent in Vents:
+			if Vent.Sequence_ID == Vent_Index:
+				print(Vent.Sequence_ID)
+				position = Vent.position
 
 func initialize_display_tokens():
 	var Display_Token = preload("res://assets/display_token.tscn")
@@ -131,20 +162,43 @@ func initialize_display_tokens():
 		New_Display_Token.ID = n
 		add_child(New_Display_Token)
 
+func initialize_health():
+	var Heart = preload("res://assets/heart.tscn")
+	for n in Health:
+		var New_Heart = Heart.instantiate()
+		New_Heart.ID = n
+		New_Heart.Type = "Health"
+		New_Heart.position = Health_Position + Vector2(SPACING*n,0)
+		add_child(New_Heart)
+	for n in Mouse_Health:
+		var New_Heart = Heart.instantiate()
+		New_Heart.ID = n
+		New_Heart.Type = "Mouse"
+		New_Heart.position = Health_Position + Vector2(SPACING*n,0)
+		New_Heart.visible = false
+		add_child(New_Heart)
+	for Child in get_children():
+		if Child.is_in_group("Heart"):
+			if Child.Type == "Health":
+				Health_List.append(Child)
+			if Child.Type == "Mouse":
+				Mouse_Health_List.append(Child)
+
 func get_shift_token(Shift_ID):
 	Shift_Tokens.append(Shift_ID)
 	update_token_display()
 
 func use_shift_token(Remove_Index):
-	Form = Shift_Tokens[Remove_Index]
-	if Selector_Index == Shift_Tokens.size()-1:
-		Shift_Tokens.remove_at(Remove_Index)
-		Selector_Index -= 1
-	else:
-		Shift_Tokens.remove_at(Remove_Index)
-	if Selector_Index < 0:
-		Selector_Index = 0
-	update_token_display()
+	if Shift_Tokens.size() > 0:
+		Form = Shift_Tokens[Remove_Index]
+		if Selector_Index == Shift_Tokens.size()-1:
+			Shift_Tokens.remove_at(Remove_Index)
+			Selector_Index -= 1
+		else:
+			Shift_Tokens.remove_at(Remove_Index)
+		if Selector_Index < 0:
+			Selector_Index = 0
+		update_token_display()
 
 func update_token_display():
 	if Shift_Tokens.size() < 9:
@@ -254,3 +308,30 @@ func interaction_check():
 			Interaction_Entity.interaction()
 		else:
 			character_say(Interaction_Entity.Fail_Speech)
+
+func update_health():
+	for Heart in Health_List:
+		Heart.visible = false
+	for Heart in Mouse_Health_List:
+		Heart.visible = false
+	if Form == "Mouse":
+		for Heart in Mouse_Health_List:
+			if Heart.ID+1 <= Mouse_Health:
+				Heart.visible = true
+		
+		#Check for death
+		if Mouse_Health <= 0:
+			death()
+	else:
+		for Heart in Health_List:
+			if Heart.ID+1 <= Health:
+				Heart.visible = true
+		
+		#Check for death
+		if Health <= 0:
+			death()
+
+func death():
+	if is_dead == false:
+		is_dead = true
+		print("You fucking died")
