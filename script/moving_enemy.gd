@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var SPEED = 200
-@export var FRICTION = 20
+@export var SPEED = 150
+@export var FRICTION = 3
 
 @export var Target: Node = null
 
@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	var current_agent_position = global_position
 	var next_path_position = Nav_Agent.get_next_path_position()
 	velocity += current_agent_position.direction_to(next_path_position) * SPEED * delta
+	velocity -= velocity * FRICTION * delta
 	
 	update_animation(velocity)
 	
