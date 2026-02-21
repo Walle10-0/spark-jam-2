@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dkme3q70kl3pg"]
+
+[ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="1_7artu"]
+[ext_resource type="Script" uid="uid://b4b6qjtmvlk25" path="res://script/missile.gd" id="1_qcqkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqlga"]
+atlas = ExtResource("1_7artu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvx2p"]
+atlas = ExtResource("1_7artu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfe6q"]
+atlas = ExtResource("1_7artu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcqkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqlga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvx2p")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfe6q")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6kld"]
+size = Vector2(10, 10)
+
+[sub_resource type="Curve" id="Curve_d3fc1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71621627, 0.7191012), -1.4253612, -1.4253612, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jb4dm"]
+curve = SubResource("Curve_d3fc1")
+
+[sub_resource type="Curve" id="Curve_mu8di"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_817wu"]
+curve = SubResource("Curve_mu8di")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7artu"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-5, 0, 0)
+velocity_pivot = Vector3(-1, 0, 0)
+direction = Vector3(-10, 0, 0)
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_817wu")
+color = Color(1, 0.4509804, 0.25490198, 1)
+alpha_curve = SubResource("CurveTexture_jb4dm")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqxkk"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(5, 0, 0)
+velocity_pivot = Vector3(-1, 0, 0)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_817wu")
+color = Color(1, 0.4509804, 0.25490198, 1)
+alpha_curve = SubResource("CurveTexture_jb4dm")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[node name="Missile" type="RigidBody2D" unique_id=121466282 node_paths=PackedStringArray("fuel", "explosion")]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qcqkr")
+fuel = NodePath("fuel")
+explosion = NodePath("explosion")
+
+[node name="missile" type="AnimatedSprite2D" parent="." unique_id=1429215372]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_qcqkr")
+animation = &"new_animation_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=955641631]
+shape = SubResource("RectangleShape2D_p6kld")
+
+[node name="fuel" type="GPUParticles2D" parent="." unique_id=841057249]
+amount = 11
+process_material = SubResource("ParticleProcessMaterial_7artu")
+
+[node name="explosion" type="GPUParticles2D" parent="." unique_id=729318926]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_jqxkk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
