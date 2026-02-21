@@ -10,3 +10,4 @@ tile_map_data = PackedByteArray("AAD+//7/AAACAAAAAAD///7/AAAIAAAAAAAAAP7/AAABAAA
 tile_set = ExtResource("1_t413n")
 
 [node name="RigidBody2D" parent="." unique_id=32253595 instance=ExtResource("2_td60s")]
+position = Vector2(128.2, 0)
