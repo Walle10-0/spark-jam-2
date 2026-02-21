@@ -19,6 +19,8 @@ config/icon="res://textures/icon.svg"
 "Shift Token"=""
 Player=""
 "<<<<<<<Updatedupstream[gui]theme/custom_font"="uid://munnv1c323j5"
+Interactable=""
+"Display Token"=""
 
 [gui]
 

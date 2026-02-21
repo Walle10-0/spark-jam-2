@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://mcal87dhudeh"]
 
+[ext_resource type="Script" uid="uid://yi6bymkehg81" path="res://assets/vent.gd" id="1_j2g8n"]
 [ext_resource type="Texture2D" uid="uid://cb3tj4wb7x3xu" path="res://textures/vent/Vent.png" id="1_srumv"]
 [ext_resource type="Texture2D" uid="uid://dcy5jbly7ftox" path="res://textures/vent/Vent_Highlighted.png" id="2_j2g8n"]
 
@@ -22,7 +23,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Vent" type="Node2D" unique_id=99067170]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srumv"]
+size = Vector2(15, 9)
+
+[node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable"]]
+script = ExtResource("1_j2g8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886001442]
 sprite_frames = SubResource("SpriteFrames_cfrwb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1420780677]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=657073908]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_srumv")

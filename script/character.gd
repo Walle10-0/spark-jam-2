@@ -16,12 +16,16 @@ var Shift_Tokens = []
 @export var Shift_Selector: Node2D
 @export var Text_More: Label
 @export var Text_Less: Label
+@export var Interaction_Detector: Node2D
 
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)
 const SPACING = 40
 var Selector_Index = 0
 var ShiftOver = 0
+
+var Is_Overlapping = true
+var First_Entry = true
 
 func _ready() -> void:
 	initialize_display_tokens()
@@ -96,7 +100,6 @@ func _input(event: InputEvent) -> void:
 				if Selector_Index <= 0:
 					Selector_Index = 0
 				update_token_display()
-		print(Selector_Index)
 
 func _physics_process(delta: float) -> void:
 	check_interactables()
@@ -210,4 +213,20 @@ func update_animation(direction: Vector2):
 		animatedSprite.speed_scale = direction.length() / 10
 
 func check_interactables():
+	var Valid_Count = 0
+	for Area in Interaction_Detector.get_overlapping_areas():
+		if Area.get_parent().is_in_group("Interactable"):
+			Area.get_parent().Is_Overlapping = true
+			Valid_Count += 1
+	if Valid_Count == 0:
+		Is_Overlapping = false
+		First_Entry = true
+	else:
+		Is_Overlapping = true
+	if Is_Overlapping == true:
+		if First_Entry == true:
+			print("BOOM")
+			First_Entry = false
+
+func character_say(speech):
 	pass

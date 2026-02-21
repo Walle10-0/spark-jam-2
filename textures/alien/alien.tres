@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7m5jd4e8wnmc" path="res://textures/Shifts/Shift_Mouse.png" id="3_hrm40"]
 [ext_resource type="Texture2D" uid="uid://cdxdpn1ldoi8b" path="res://textures/alien/Moonwalk_Side.png" id="3_j4duu"]
 [ext_resource type="Texture2D" uid="uid://b1j4yqm2ndiuq" path="res://textures/robot/robot.png" id="4_7rwis"]
-[ext_resource type="Texture2D" uid="uid://b657ey70i5lh3" path="res://textures/Shifts/Shift_Plant.png" id="5_3058f"]
+[ext_resource type="Texture2D" uid="uid://dmjwd6mjcoyna" path="res://textures/Shifts/Plant.png" id="6_3058f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rwis"]
 atlas = ExtResource("1_lekuh")
@@ -352,7 +352,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_3058f")
+"texture": ExtResource("6_3058f")
 }],
 "loop": true,
 "name": &"Plant_back",
@@ -360,7 +360,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_3058f")
+"texture": ExtResource("6_3058f")
 }],
 "loop": true,
 "name": &"Plant_default",
@@ -368,7 +368,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_3058f")
+"texture": ExtResource("6_3058f")
 }],
 "loop": true,
 "name": &"Plant_front",
@@ -376,7 +376,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_3058f")
+"texture": ExtResource("6_3058f")
 }],
 "loop": true,
 "name": &"Plant_side",
