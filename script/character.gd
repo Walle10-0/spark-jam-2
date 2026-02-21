@@ -55,6 +55,8 @@ func _input(event: InputEvent) -> void:
 	if Vent_Mode == false:
 		if Input.is_action_just_pressed("Shift"):
 			use_shift_token(Selector_Index)
+		if Input.is_action_just_pressed("Reset Shift"):
+			Form = "Alien"
 		if Input.is_action_just_pressed("button_1"):
 			if Shift_Tokens.size()>=1:
 				if Selector_Index > 8:
@@ -136,7 +138,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("right"):
 			velocity.x +=  speed * delta
 		velocity -= velocity * delta * friction
-		if Form != "Plant":
+		if Form != "Plant" && Form != "Turret":
 			move_and_slide()
 		update_animation(velocity)
 	else:
