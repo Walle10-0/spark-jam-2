@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dcmnacqaadswh" path="res://textures/robot/robot.tres" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(10, 10)
 
 [node name="PathFollow2D" type="PathFollow2D" unique_id=1686006324]
 rotates = false
@@ -16,6 +17,6 @@ gravity_scale = 0.0
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D2" unique_id=1172810162]
-position = Vector2(0, -3.025)
+position = Vector2(0, -9)
 sprite_frames = ExtResource("2_md0e3")
 animation = &"front-idle"
