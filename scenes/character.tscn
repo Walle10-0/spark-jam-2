@@ -7,6 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrhn5"]
+
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less") groups=["Player"]]
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
@@ -70,3 +72,8 @@ offset_right = 315.0
 offset_bottom = 789.0
 grow_horizontal = 0
 texture = ExtResource("3_lrhn5")
+
+[node name="Interaction Detector" type="Area2D" parent="." unique_id=1994274900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Detector" unique_id=885718688]
+shape = SubResource("RectangleShape2D_lrhn5")

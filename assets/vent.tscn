@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://mcal87dhudeh"]
+
+[ext_resource type="Texture2D" uid="uid://cb3tj4wb7x3xu" path="res://textures/vent/Vent.png" id="1_srumv"]
+[ext_resource type="Texture2D" uid="uid://dcy5jbly7ftox" path="res://textures/vent/Vent_Highlighted.png" id="2_j2g8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfrwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_srumv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j2g8n")
+}],
+"loop": true,
+"name": &"highlight",
+"speed": 5.0
+}]
+
+[node name="Vent" type="Node2D" unique_id=99067170]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886001442]
+sprite_frames = SubResource("SpriteFrames_cfrwb")

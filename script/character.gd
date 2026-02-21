@@ -99,6 +99,7 @@ func _input(event: InputEvent) -> void:
 		print(Selector_Index)
 
 func _physics_process(delta: float) -> void:
+	check_interactables()
 	if Input.is_action_pressed("up"):
 		velocity.y +=  -speed * delta
 	if Input.is_action_pressed("down"):
@@ -207,3 +208,6 @@ func update_animation(direction: Vector2):
 				animatedSprite.play(Form+"_back")
 		
 		animatedSprite.speed_scale = direction.length() / 10
+
+func check_interactables():
+	pass
