@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://6oaj53dmpy1c"]
+
+[ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="1_qqo7h"]
+[ext_resource type="Script" uid="uid://bqdofw2toctcx" path="res://script/cannon.gd" id="1_uujwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uujwa"]
+size = Vector2(10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqlga"]
+atlas = ExtResource("1_qqo7h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvx2p"]
+atlas = ExtResource("1_qqo7h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfe6q"]
+atlas = ExtResource("1_qqo7h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53g1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqlga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvx2p")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfe6q")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1137433168 node_paths=PackedStringArray("missile", "launcher")]
+script = ExtResource("1_uujwa")
+missile = NodePath("Node2D/missile")
+launcher = NodePath("Node2D/launcher")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917653917]
+shape = SubResource("RectangleShape2D_uujwa")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1457132968]
+position = Vector2(0, -2.5)
+
+[node name="missile" type="AnimatedSprite2D" parent="Node2D" unique_id=1874314279]
+z_index = -1
+position = Vector2(0, -6.285)
+sprite_frames = SubResource("SpriteFrames_53g1s")
+animation = &"new_animation_1"
+
+[node name="base" type="AnimatedSprite2D" parent="Node2D" unique_id=233373688]
+z_index = 1
+position = Vector2(0, -6.285)
+sprite_frames = SubResource("SpriteFrames_53g1s")
+
+[node name="launcher" type="AnimatedSprite2D" parent="Node2D" unique_id=822850960]
+position = Vector2(0, -6.285)
+sprite_frames = SubResource("SpriteFrames_53g1s")
+animation = &"new_animation"
