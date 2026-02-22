@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://ba4o01gashu0"]
 
 [ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="2_td60s"]
-[ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="4_dc6gq"]
-[ext_resource type="PackedScene" uid="uid://mcal87dhudeh" path="res://assets/vent.tscn" id="6_ogaks"]
+[ext_resource type="PackedScene" path="res://assets/shift_token.tscn" id="4_dc6gq"]
+[ext_resource type="PackedScene" path="res://assets/vent.tscn" id="6_ogaks"]
 [ext_resource type="PackedScene" uid="uid://6oaj53dmpy1c" path="res://assets/cannon.tscn" id="7_f1jql"]
 [ext_resource type="PackedScene" uid="uid://f0s1glje8vf0" path="res://assets/moving_enemy.tscn" id="7_s8jmr"]
 [ext_resource type="Texture2D" uid="uid://dxev65n7cyxb5" path="res://tilemap/Lab_Wall_Left-0(1).png" id="7_suuxx"]
