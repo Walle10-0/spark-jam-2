@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(15, 9)
 
 [node name="Vent" type="Node2D" unique_id=99067170 groups=["Interactable", "Vent"]]
+z_index = -2
 script = ExtResource("1_j2g8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886001442]

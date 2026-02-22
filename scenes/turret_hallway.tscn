@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bqdphwtw7wveo"]
+
+[ext_resource type="TileSet" uid="uid://metf2kdmhbwo" path="res://tilemap/lab_tiles.tres" id="1_n4hon"]
+[ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="2_bb78w"]
+[ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="3_ogljr"]
+
+[node name="Turret Hallway" type="Node2D" unique_id=670859564]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1642887326]
+z_index = -100
+tile_set = ExtResource("1_n4hon")
+metadata/_edit_lock_ = true
+
+[node name="RigidBody2D" parent="." unique_id=515593830 instance=ExtResource("2_bb78w")]
+position = Vector2(-19, 5)
+
+[node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("3_ogljr")]
+position = Vector2(25, -3)
