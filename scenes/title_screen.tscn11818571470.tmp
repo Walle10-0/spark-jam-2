@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dv7f8of6y77a7"]
 
 [ext_resource type="Texture2D" uid="uid://d20mas0eugltu" path="res://textures/UI/Alien_Title_Screen.png" id="1_fgkus"]
-[ext_resource type="Script" uid="uid://ckx8x3wm8ok4h" path="res://script/title_screen.gd" id="1_s4lrb"]
+[ext_resource type="Script" uid="uid://ckx8x3wm8ok4h" path="res://scenes/title_screen.gd" id="1_s4lrb"]
 [ext_resource type="Texture2D" uid="uid://dyx4rcjf3w8g7" path="res://textures/UI/background color.png" id="2_sa3yf"]
 [ext_resource type="Texture2D" uid="uid://bp18pwmc5wjyo" path="res://textures/UI/Play_Button.png" id="4_mgrm8"]
 [ext_resource type="Texture2D" uid="uid://cidav6fyatc6i" path="res://textures/UI/Quit_Button.png" id="5_dc4i4"]
@@ -179,7 +179,7 @@ script = ExtResource("1_s4lrb")
 position = Vector2(576, 373)
 scale = Vector2(8.046875, 8.046875)
 sprite_frames = SubResource("SpriteFrames_p07av")
-frame_progress = 0.42789656
+frame_progress = 0.13178892
 
 [node name="BackgroundColor" type="Sprite2D" parent="." unique_id=1286030474]
 z_index = -11
