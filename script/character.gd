@@ -34,7 +34,7 @@ var Shift_Tokens = []
 @export var missile_prefab: PackedScene = preload("res://assets/missile.tscn")
 @export var missile_thingy: AnimatedSprite2D
 @export var missile_RELOAD_TIME: float = 2.0
-var missile_reload: float = 0
+var missile_reload: float = missile_RELOAD_TIME
 
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)
