@@ -30,6 +30,10 @@ func incr_number():
 
 func update_number(number: int):
 	counter.text = str(number)
+	if number == 0:
+		visual.self_modulate = Color(0.5,0.5,0.5)
+	else:
+		visual.self_modulate = Color(1,1,1)
 
 func highlight(enable: bool):
 	highlight_node.visible = enable
