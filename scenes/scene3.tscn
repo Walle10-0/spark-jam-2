@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bawj7jhqdnyr6"]
 
-[ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="1_eeuis"]
 [ext_resource type="PackedScene" uid="uid://ls2l50ng7wtt" path="res://assets/shift_token.tscn" id="2_2iuxu"]
 [ext_resource type="PackedScene" uid="uid://mcal87dhudeh" path="res://assets/vent.tscn" id="3_trsnf"]
 [ext_resource type="PackedScene" uid="uid://f0s1glje8vf0" path="res://assets/moving_enemy.tscn" id="4_0w056"]
@@ -8,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxev65n7cyxb5" path="res://tilemap/Lab_Wall_Left-0(1).png" id="6_q30rc"]
 [ext_resource type="PackedScene" uid="uid://6oaj53dmpy1c" path="res://assets/cannon.tscn" id="7_g8jyp"]
 [ext_resource type="PackedScene" uid="uid://djjiq84af7h48" path="res://assets/pathfinding_waypoint.tscn" id="8_2iuxu"]
+[ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="9_0w056"]
 [ext_resource type="PackedScene" path="res://assets/cracked.tscn" id="9_trsnf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_suuxx"]
@@ -279,10 +279,6 @@ sources/1 = SubResource("TileSetAtlasSource_mw1gl")
 [node name="Scene1" type="Node2D" unique_id=63178606]
 position = Vector2(0, 1)
 
-[node name="player" parent="." unique_id=32253595 instance=ExtResource("1_eeuis")]
-z_index = 5
-position = Vector2(-425, 107)
-
 [node name="ShiftToken" parent="." unique_id=241752677 instance=ExtResource("2_2iuxu")]
 position = Vector2(90, 24)
 Shift_ID = "Plant"
@@ -337,7 +333,7 @@ Shift_ID = "Robot"
 
 [node name="ShiftToken14" parent="." unique_id=193140484 instance=ExtResource("2_2iuxu")]
 position = Vector2(493, 67)
-Shift_ID = "Plant"
+Shift_ID = "Turret"
 
 [node name="Vent" parent="." unique_id=99067170 instance=ExtResource("3_trsnf")]
 position = Vector2(-335, 257)
@@ -357,10 +353,9 @@ Sequence_ID = 2
 position = Vector2(201, 163)
 Vent_ID = "vance"
 
-[node name="Moving Enemy" parent="." unique_id=1282150651 node_paths=PackedStringArray("Target") instance=ExtResource("4_0w056")]
-position = Vector2(-250, 190)
+[node name="Moving Enemy" parent="." unique_id=1282150651 instance=ExtResource("4_0w056")]
+position = Vector2(97, -153)
 Waypoint_ID = "Testing"
-Target = NodePath("../player")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=917373525]
 z_index = -100
@@ -368,9 +363,8 @@ tile_map_data = PackedByteArray("AADo/wEAAQAAAAAAAADo////AQAAAAAAAADo//3/AQABAAA
 tile_set = SubResource("TileSet_lfno2")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" parent="." unique_id=1137433168 node_paths=PackedStringArray("target") instance=ExtResource("7_g8jyp")]
+[node name="StaticBody2D" parent="." unique_id=1137433168 instance=ExtResource("7_g8jyp")]
 position = Vector2(-583, 75)
-target = NodePath("../player")
 
 [node name="Pathfinding Waypoint" parent="." unique_id=484636730 instance=ExtResource("8_2iuxu")]
 position = Vector2(-215, -91)
@@ -388,3 +382,14 @@ Sequence_ID = 2
 
 [node name="StaticBody2D2" parent="." unique_id=51833663 instance=ExtResource("9_trsnf")]
 position = Vector2(-544, 112)
+
+[node name="RigidBody2D" parent="." unique_id=515593830 instance=ExtResource("9_0w056")]
+position = Vector2(-250, 90)
+
+[node name="ShiftToken15" parent="." unique_id=1678679170 instance=ExtResource("2_2iuxu")]
+position = Vector2(-504, 221)
+Shift_ID = "Turret"
+
+[node name="ShiftToken16" parent="." unique_id=150721991 instance=ExtResource("2_2iuxu")]
+position = Vector2(-467, 226)
+Shift_ID = "Turret"

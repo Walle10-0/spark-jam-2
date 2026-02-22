@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="1_qqo7h"]
 [ext_resource type="Script" uid="uid://bqdofw2toctcx" path="res://script/cannon.gd" id="1_uujwa"]
+[ext_resource type="Texture2D" uid="uid://dqxqbs18l30hf" path="res://textures/animation/wow.png" id="3_jvx2p"]
+[ext_resource type="Texture2D" uid="uid://cvjoh5yaofov7" path="res://textures/animation/wut.png" id="4_mfe6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uujwa"]
 size = Vector2(10, 10)
@@ -45,10 +47,148 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=1137433168 node_paths=PackedStringArray("missile", "launcher")]
+[sub_resource type="Animation" id="Animation_jvx2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wut:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wut:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mfe6q"]
+resource_name = "wow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wut:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_53g1s"]
+resource_name = "wut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wut:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wut:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jv63l"]
+_data = {
+&"RESET": SubResource("Animation_jvx2p"),
+&"wow": SubResource("Animation_mfe6q"),
+&"wut": SubResource("Animation_53g1s")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1137433168 node_paths=PackedStringArray("missile", "launcher", "Caster", "Disengage_Timer")]
 script = ExtResource("1_uujwa")
 missile = NodePath("Node2D/missile")
 launcher = NodePath("Node2D/launcher")
+Caster = NodePath("Node2D/launcher/RayCast2D")
+Disengage_Timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917653917]
 shape = SubResource("RectangleShape2D_uujwa")
@@ -71,3 +211,25 @@ sprite_frames = SubResource("SpriteFrames_53g1s")
 position = Vector2(0, -6.285)
 sprite_frames = SubResource("SpriteFrames_53g1s")
 animation = &"new_animation"
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D/launcher" unique_id=161858325]
+position = Vector2(0, 8.785)
+target_position = Vector2(150, 0)
+
+[node name="Wow" type="Sprite2D" parent="." unique_id=1376076468]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("3_jvx2p")
+
+[node name="Wut" type="Sprite2D" parent="." unique_id=1794162230]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("4_mfe6q")
+
+[node name="Emote" type="AnimationPlayer" parent="." unique_id=25188626]
+libraries/ = SubResource("AnimationLibrary_jv63l")
+
+[node name="Timer" type="Timer" parent="." unique_id=1478494151]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

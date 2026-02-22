@@ -209,6 +209,8 @@ func use_shift_token(Remove_Index):
 		if Selector_Index < 0:
 			Selector_Index = 0
 		update_token_display()
+	if Form == "Turret":
+		character_say("E - Fire!")
 
 func update_token_display():
 	if Shift_Tokens.size() < 9:

@@ -10,7 +10,7 @@ class_name IAmARobot
 
 @export var FOV = 45
 
-@export var VIEW_RANGE = 200
+@export var VIEW_RANGE = 150
 @export var VIEW_ANGLE = 0
 
 var Rotation_State = Vector2(0,1)
@@ -19,7 +19,7 @@ var Has_Broken_Sight = false
 var Last_Seen_ID = ""
 var Player
 
-@export var Can_See = ["Alien","Mouse"]
+@export var Can_See = ["Alien","Mouse","Turret"]
 
 @export var Waypoint_ID = ""
 @export var Waypoint_List = []
@@ -136,7 +136,10 @@ func detection():
 			if Caster.is_colliding():
 				if Caster.get_collider() and Caster.get_collider().is_in_group("Player"):
 					if (Player.global_position-global_position).dot(Rotation_State) > 0:
-						Sees_Player = true
+						if Player.Vent_Mode == false:
+							Sees_Player = true
+						else:
+							Sees_Player = false
 					else:
 						Sees_Player = false
 				else:
@@ -162,6 +165,11 @@ func detection():
 						bot_state = "_passive"
 						if not Emote.is_playing():
 							Emote.play("wut")
+	if Player.Vent_Mode == true:
+		if bot_state == "_hostile":
+			bot_state = "_passive"
+			if not Emote.is_playing():
+				Emote.play("wut")
 
 
 func _on_attack_timer_timeout() -> void:
