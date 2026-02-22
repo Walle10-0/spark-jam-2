@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var explosion: GPUParticles2D
 @export var speed: float = 75
 @export var launch_speed: float = 50
+@export var damage = 1
 
 var launch: bool = true
 var end: bool = false
@@ -16,6 +17,8 @@ func _physics_process(delta: float) -> void:
 		self.linear_velocity += Vector2.from_angle(self.rotation) * speed * delta
 
 func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Player"):
+		body.damage(damage)
 	if body is IAmARobot:
 		body.queue_free()
 	explosion.emitting = true

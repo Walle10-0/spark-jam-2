@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://djjiq84af7h48"]
+
+[ext_resource type="Script" uid="uid://o11aenif85pa" path="res://script/pathfinding_waypoint.gd" id="1_c5am1"]
+[ext_resource type="Texture2D" uid="uid://cyoym3lj78rlv" path="res://textures/UI/coolred.png" id="1_e2tfm"]
+
+[node name="Pathfinding Waypoint" type="Node2D" unique_id=484636730 groups=["Waypoint"]]
+script = ExtResource("1_c5am1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1229396943]
+texture = ExtResource("1_e2tfm")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://s6xp3f58tljg"]
+
+[ext_resource type="Script" path="res://script/enemy_dynamic.gd" id="1_an8wb"]
+[ext_resource type="SpriteFrames" uid="uid://dcmnacqaadswh" path="res://textures/robot/robot.tres" id="2_nhatt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(10, 10)
+
+[node name="RigidBody2D2" type="RigidBody2D" unique_id=2141597305 node_paths=PackedStringArray("animatedSprite")]
+collision_layer = 0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 1.0
+script = ExtResource("1_an8wb")
+animatedSprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=990629788]
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172810162]
+position = Vector2(0, -9)
+sprite_frames = ExtResource("2_nhatt")
+animation = &"front"
+autoplay = "front-idle"

@@ -23,6 +23,7 @@ Interactable=""
 "Display Token"=""
 Vent=""
 Heart=""
+Waypoint=""
 
 [gui]
 
