@@ -393,5 +393,5 @@ tile_map_data = PackedByteArray("AADo/wEAAQAAAAAAAADo////AQAAAAAAAADo//3/AQABAAA
 tile_set = SubResource("TileSet_lfno2")
 
 [node name="StaticBody2D" parent="." unique_id=1137433168 node_paths=PackedStringArray("target") instance=ExtResource("7_f1jql")]
-position = Vector2(-583, 75)
+position = Vector2(-78, 54)
 target = NodePath("../player")

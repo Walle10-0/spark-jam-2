@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cq7sn6umybaa3"]
+
+[ext_resource type="Script" uid="uid://cgr1h7qwgs74l" path="res://script/mainSwitcher.gd" id="1_cjsew"]
+
+[node name="SceneSwitcher" type="Control" unique_id=705494113]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjsew")
+firstScene = "uid://ba4o01gashu0"
+transitionTemp = "uid://rju0s61l6vhv"
