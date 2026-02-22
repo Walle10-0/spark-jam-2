@@ -8,13 +8,15 @@ var Robots = []
 @onready var Explosion = preload("res://assets/explosion.tscn")
 
 func _ready() -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
+	Robots = []
 	for Child in get_parent().get_children():
 		if Child.is_in_group("Player"):
 			Player = Child
 		if Child.is_in_group("Robot"):
 			Robots.append(Child)
-
-func _physics_process(delta: float) -> void:
 	for Robot in Robots:
 		if global_position.distance_to(Robot.global_position) < Magnet_Range:
 			var New_Explosion = Explosion.instantiate()
