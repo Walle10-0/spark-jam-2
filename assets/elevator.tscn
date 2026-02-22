@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c3fh7hvhs5e2g"]
+
+[ext_resource type="Script" uid="uid://dci40pthcf78n" path="res://script/elevator.gd" id="1_g1s1e"]
+[ext_resource type="Texture2D" uid="uid://b31jpipx0ngvg" path="res://textures/Doors/closed_elevator.png" id="2_x7cd2"]
+[ext_resource type="Texture2D" uid="uid://cyuwhux80sp3b" path="res://textures/Doors/open_elevator.png" id="3_2bv3v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0xri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7cd2")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2bv3v")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7cd2"]
+size = Vector2(23, 31)
+
+[node name="Elevator" type="Node2D" unique_id=626916946]
+script = ExtResource("1_g1s1e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=290399682]
+sprite_frames = SubResource("SpriteFrames_s0xri")
+animation = &"open"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=747257441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1659526663]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_x7cd2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

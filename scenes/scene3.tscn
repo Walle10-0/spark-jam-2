@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://tcoky3megyp7" path="res://assets/door.tscn" id="10_0w056"]
 [ext_resource type="PackedScene" uid="uid://qonvcjdcyyvx" path="res://assets/lever.tscn" id="11_2apvo"]
 [ext_resource type="PackedScene" uid="uid://ceqowqdxswpjg" path="res://assets/random_token.tscn" id="12_q30rc"]
+[ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="13_g8jyp"]
 
 [node name="Scene1" type="Node2D" unique_id=63178606]
 position = Vector2(0, 1)
@@ -160,3 +161,6 @@ position = Vector2(-840, 301)
 
 [node name="Random Token5" parent="." unique_id=2097031228 instance=ExtResource("12_q30rc")]
 position = Vector2(-893, 341)
+
+[node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("13_g8jyp")]
+position = Vector2(-595, 309)

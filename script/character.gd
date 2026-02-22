@@ -7,6 +7,7 @@ enum Identity {Default, Plant, Mouse, Robot, Turrent}
 @export var friction: float = 4
 @export var identity: Identity = Identity.Default
 
+var locked = false
 var is_dead = false
 
 var Health = 3
@@ -145,7 +146,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x +=  speed * delta
 		velocity -= velocity * delta * friction
 		if Form != "Plant" && Form != "Turret":
-			move_and_slide()
+			if locked == false:
+				move_and_slide()
 		update_animation(velocity)
 		turretStuff(delta)
 	else:
@@ -356,6 +358,7 @@ func damage(damage):
 func death():
 	if is_dead == false:
 		is_dead = true
+		locked = true
 		print("You fucking died")
 
 func updateCamera(delta):
@@ -383,3 +386,7 @@ func turretStuff(delta):
 				missile_thingy.animation = "load"
 	else:
 		missile_thingy.visible = false
+
+func Next_Scene(Scene_Name):
+	locked = true
+	visible = false
