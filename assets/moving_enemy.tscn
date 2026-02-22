@@ -430,7 +430,7 @@ Caster = NodePath("RayCast2D")
 [node name="Visual" type="AnimatedSprite2D" parent="." unique_id=2128224474]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_m3gcw")
-animation = &"side_passive"
+animation = &"back_passive"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1843618484]
 path_desired_distance = 3.0

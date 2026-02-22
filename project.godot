@@ -34,6 +34,7 @@ Waypoint=""
 Magnet=""
 Robot=""
 Door=""
+Scientist=""
 
 [gui]
 

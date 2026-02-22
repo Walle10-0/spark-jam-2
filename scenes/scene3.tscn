@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://qonvcjdcyyvx" path="res://assets/lever.tscn" id="11_2apvo"]
 [ext_resource type="PackedScene" uid="uid://ceqowqdxswpjg" path="res://assets/random_token.tscn" id="12_q30rc"]
 [ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="13_g8jyp"]
+[ext_resource type="PackedScene" uid="uid://cdjbe0nhhcish" path="res://assets/scientist_enemy.tscn" id="14_7sgcu"]
 
 [node name="Scene1" type="Node2D" unique_id=63178606]
 position = Vector2(0, 1)
@@ -165,3 +166,20 @@ position = Vector2(-893, 341)
 [node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("13_g8jyp")]
 position = Vector2(-616, -77)
 Next_Scene = "scene_4"
+
+[node name="ShiftToken17" parent="." unique_id=600588137 instance=ExtResource("2_2iuxu")]
+position = Vector2(-467, 353)
+Shift_ID = "Scientist"
+
+[node name="Scientist" parent="." unique_id=2540593 instance=ExtResource("14_7sgcu")]
+position = Vector2(-510, 384)
+Waypoint_ID = "Sci"
+
+[node name="Pathfinding Waypoint4" parent="." unique_id=1327112469 instance=ExtResource("8_2iuxu")]
+position = Vector2(-311, 389)
+Waypoint_ID = "Sci"
+
+[node name="Pathfinding Waypoint5" parent="." unique_id=1642560936 instance=ExtResource("8_2iuxu")]
+position = Vector2(-675, 407)
+Waypoint_ID = "Sci"
+Sequence_ID = 1
