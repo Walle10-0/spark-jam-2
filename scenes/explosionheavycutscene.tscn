@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ct4ykbsae6feu"]
+[gd_scene format=3 uid="uid://c6v377njsnj5g"]
 
 [ext_resource type="Script" uid="uid://7s3o6emcas5f" path="res://script/themostepiccutsceneofalltime.gd" id="1_4ns12"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lq0co"]
@@ -255,6 +255,7 @@ scale = Vector2(0.26999998, 0.26999998)
 sprite_frames = ExtResource("2_lq0co")
 animation = &"Alien_back"
 autoplay = "default"
+speed_scale = 4.0
 flip_h = true
 
 [node name="Coolblack" type="Sprite2D" parent="." unique_id=1275553566]

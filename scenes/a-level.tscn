@@ -417,21 +417,21 @@ Waypoint_ID = "dance2"
 Sequence_ID = 1
 
 [node name="Pathfinding Waypoint10" parent="." unique_id=263082105 instance=ExtResource("8_fxpwc")]
-position = Vector2(-366, -529)
+position = Vector2(-374, -524)
 Waypoint_ID = "proffesor"
 
 [node name="Pathfinding Waypoint11" parent="." unique_id=884196368 instance=ExtResource("8_fxpwc")]
-position = Vector2(341, -528)
+position = Vector2(-6, -521)
 Waypoint_ID = "proffesor"
 Sequence_ID = 1
 
 [node name="Pathfinding Waypoint12" parent="." unique_id=1594379408 instance=ExtResource("8_fxpwc")]
-position = Vector2(367, 224)
+position = Vector2(345, -521)
 Waypoint_ID = "proffesor"
 Sequence_ID = 2
 
 [node name="Pathfinding Waypoint13" parent="." unique_id=1536669254 instance=ExtResource("8_fxpwc")]
-position = Vector2(-353, 220)
+position = Vector2(354, 223)
 Waypoint_ID = "proffesor"
 Sequence_ID = 3
 
@@ -534,9 +534,10 @@ position = Vector2(-60, -642)
 [node name="Random Token3" parent="." unique_id=603535414 instance=ExtResource("15_ncnl5")]
 position = Vector2(26, -641)
 
-[node name="Scientist" parent="." unique_id=1455287898 instance=ExtResource("16_fxpwc")]
-position = Vector2(-372, -95)
-Waypoint_ID = "proffesor "
+[node name="Scientist" parent="." unique_id=1455287898 node_paths=PackedStringArray("Target") instance=ExtResource("16_fxpwc")]
+position = Vector2(-361, -503)
+Waypoint_ID = "proffesor"
+Target = NodePath("../player")
 
 [node name="Magnet" parent="." unique_id=1321831170 instance=ExtResource("17_esaat")]
 position = Vector2(-192, -528)
