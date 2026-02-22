@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dvqex0i5fs85a"]
+[gd_scene format=3 uid="uid://cc8w78mrv3pmj"]
 
-[ext_resource type="TileSet" uid="uid://metf2kdmhbwo" path="res://tilemap/lab_tiles.tres" id="1_2r1qs"]
+[ext_resource type="TileSet" path="res://tilemap/lab_tiles.tres" id="1_2r1qs"]
 [ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="2_mrf31"]
-[ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="3_bydh8"]
+[ext_resource type="PackedScene" path="res://assets/elevator.tscn" id="3_bydh8"]
 
 [node name="Scene 4" type="Node2D" unique_id=670859564]
 
