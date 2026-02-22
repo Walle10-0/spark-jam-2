@@ -5,6 +5,9 @@ class_name IAmARobot
 @export var FRICTION = 3
 @export var SIGHT = 0
 
+@export var ATTACK_RANGE = 50
+@export var DAMAGE = 1
+
 @export var FOV = 45
 
 @export var VIEW_RANGE = 200
@@ -32,6 +35,9 @@ var Waypoint_Max = 0
 
 @onready var Emote = $Callouts
 
+@onready var Laser = $Line2D2
+@onready var LaserAnim = $LaserAnim
+
 var bot_state: String = "_passive"
 
 var disablethistemp = true
@@ -42,6 +48,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	detection()
+	
+	if LaserAnim.is_playing():
+		if LaserAnim.current_animation == "Laser":
+			Laser.points[1] = to_local(Player.global_position)
 	
 	if bot_state == "_passive":
 		if Waypoint_List.size() > 0:
@@ -152,3 +162,13 @@ func detection():
 						bot_state = "_passive"
 						if not Emote.is_playing():
 							Emote.play("wut")
+
+
+func _on_attack_timer_timeout() -> void:
+	if bot_state == "_hostile":
+		if Player:
+			if Player.global_position.distance_to(global_position) < ATTACK_RANGE:
+				if Sees_Player == true:
+					if LaserAnim.is_playing() == false:
+						LaserAnim.play("Laser")
+						Player.damage(DAMAGE)

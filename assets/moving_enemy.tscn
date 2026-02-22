@@ -442,8 +442,6 @@ avoidance_enabled = true
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_nwrgi")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=499217385]
-
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1895972823]
 position = Vector2(0, -4)
 collision_mask = 3
@@ -470,4 +468,9 @@ default_color = Color(1, 0, 0, 1)
 [node name="LaserAnim" type="AnimationPlayer" parent="." unique_id=1254868811]
 libraries/ = SubResource("AnimationLibrary_jcsh2")
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=1286424563]
+wait_time = 0.5
+autostart = true
+
 [connection signal="animation_finished" from="Callouts" to="." method="_on_callouts_animation_finished"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
