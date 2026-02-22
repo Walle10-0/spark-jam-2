@@ -5,7 +5,7 @@ extends Node2D
 @export var target: Node2D
 @export var missile_prefab: PackedScene = preload("res://assets/missile.tscn")
 
-@export var SIGHT = 120
+@export var SIGHT = 240
 @export var RELOAD_TIME: float = 2.0
 
 var target_dir: float = 0

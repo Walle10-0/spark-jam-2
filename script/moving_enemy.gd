@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name IAmARobot
 
 @export var SPEED = 150
 @export var FRICTION = 3
