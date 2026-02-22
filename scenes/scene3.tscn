@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dxev65n7cyxb5" path="res://tilemap/Lab_Wall_Left-0(1).png" id="6_q30rc"]
 [ext_resource type="PackedScene" uid="uid://6oaj53dmpy1c" path="res://assets/cannon.tscn" id="7_g8jyp"]
 [ext_resource type="PackedScene" uid="uid://djjiq84af7h48" path="res://assets/pathfinding_waypoint.tscn" id="8_2iuxu"]
+[ext_resource type="PackedScene" path="res://assets/cracked.tscn" id="9_trsnf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_suuxx"]
 vertices = PackedVector2Array(16, 16, -8, 16, -8, -16, 16, -16)
@@ -384,3 +385,6 @@ Sequence_ID = 1
 position = Vector2(-83, 70)
 Waypoint_ID = "Testing"
 Sequence_ID = 2
+
+[node name="StaticBody2D2" parent="." unique_id=51833663 instance=ExtResource("9_trsnf")]
+position = Vector2(-544, 112)

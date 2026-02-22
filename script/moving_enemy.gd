@@ -30,6 +30,8 @@ var Waypoint_Max = 0
 @export var Nav_Agent: NavigationAgent2D
 @export var Caster:Node
 
+@onready var Emote = $Callouts
+
 var bot_state: String = "_passive"
 
 var disablethistemp = true
@@ -135,6 +137,8 @@ func detection():
 			#become hostile
 			if Can_See.has(Player.Form):
 				bot_state = "_hostile"
+				if not Emote.is_playing():
+					Emote.play("wow")
 	elif bot_state == "_hostile":
 		if Sees_Player == false:
 			if Has_Broken_Sight == false:
@@ -146,3 +150,5 @@ func detection():
 				if Player.Form != Last_Seen_ID:
 					if not Can_See.has(Player.Form):
 						bot_state = "_passive"
+						if not Emote.is_playing():
+							Emote.play("wut")

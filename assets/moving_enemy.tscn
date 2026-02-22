@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b1j4yqm2ndiuq" path="res://textures/robot/robot.png" id="1_kusdj"]
 [ext_resource type="Script" uid="uid://douecy5oxit4y" path="res://script/moving_enemy.gd" id="1_nwrgi"]
+[ext_resource type="Texture2D" uid="uid://dqxqbs18l30hf" path="res://textures/animation/wow.png" id="3_cmjbd"]
+[ext_resource type="Texture2D" uid="uid://cvjoh5yaofov7" path="res://textures/animation/wut.png" id="4_0174c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66mqk"]
 atlas = ExtResource("1_kusdj")
@@ -218,6 +220,170 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwrgi"]
 size = Vector2(14, 7)
 
+[sub_resource type="Animation" id="Animation_0174c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wut:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wut:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cmjbd"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wut:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_38ipk"]
+resource_name = "wow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_u6t2e"]
+resource_name = "wut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wut:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wut:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0174c"]
+_data = {
+&"RESET": SubResource("Animation_0174c"),
+&"default": SubResource("Animation_cmjbd"),
+&"wow": SubResource("Animation_38ipk"),
+&"wut": SubResource("Animation_u6t2e")
+}
+
 [node name="Moving Enemy" type="CharacterBody2D" unique_id=1282150651 node_paths=PackedStringArray("animatedSprite", "Nav_Agent", "Caster")]
 script = ExtResource("1_nwrgi")
 animatedSprite = NodePath("Visual")
@@ -245,3 +411,18 @@ shape = SubResource("RectangleShape2D_nwrgi")
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1895972823]
 position = Vector2(0, -4)
 collision_mask = 3
+
+[node name="Wow" type="Sprite2D" parent="." unique_id=743595926]
+visible = false
+position = Vector2(1, -33)
+texture = ExtResource("3_cmjbd")
+
+[node name="Wut" type="Sprite2D" parent="." unique_id=78623173]
+visible = false
+position = Vector2(1, -33)
+texture = ExtResource("4_0174c")
+
+[node name="Callouts" type="AnimationPlayer" parent="." unique_id=705713306]
+libraries/ = SubResource("AnimationLibrary_0174c")
+
+[connection signal="animation_finished" from="Callouts" to="." method="_on_callouts_animation_finished"]
