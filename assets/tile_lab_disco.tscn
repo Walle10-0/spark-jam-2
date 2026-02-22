@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bpfg7bopsuye7"]
+
+[ext_resource type="Texture2D" uid="uid://b2lchj5duiky0" path="res://tilemap/Tile_Lab_Disco.png" id="1_l45r4"]
+[ext_resource type="Script" uid="uid://c7bb4kwiebs8d" path="res://assets/tile_lab_disco.gd" id="2_t5o3r"]
+
+[node name="TileLabDisco" type="Sprite2D" unique_id=193723449]
+z_index = -2
+texture = ExtResource("1_l45r4")
+script = ExtResource("2_t5o3r")
+timer = 0.3

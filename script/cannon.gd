@@ -62,7 +62,7 @@ func detection():
 	if Player:
 		if Player.global_position.distance_to(global_position) < SIGHT:
 			if Caster.is_colliding():
-				if Caster.get_collider().is_in_group("Player"):
+				if Caster.get_collider() and Caster.get_collider().is_in_group("Player"):
 					if Can_See.has(Player.Form):
 						sees_player = true
 					else:
