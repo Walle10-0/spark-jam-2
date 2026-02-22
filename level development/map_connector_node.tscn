@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cfyxbn6tnchxb"]
+
+[ext_resource type="Texture2D" uid="uid://cyoym3lj78rlv" path="res://textures/UI/coolred.png" id="1_vv0xc"]
+[ext_resource type="Script" uid="uid://bpoxj3oh6rpxr" path="res://level development/map_connector_node.gd" id="1_y6ye7"]
+
+[node name="Map Connector Node" type="Node2D" unique_id=2007534627 groups=["Map Connector"]]
+script = ExtResource("1_y6ye7")
+
+[node name="Coolred" type="Sprite2D" parent="." unique_id=1181527142]
+texture = ExtResource("1_vv0xc")
+centered = false
