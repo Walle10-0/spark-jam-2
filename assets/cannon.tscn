@@ -183,7 +183,7 @@ _data = {
 &"wut": SubResource("Animation_53g1s")
 }
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=1137433168 node_paths=PackedStringArray("missile", "launcher", "Caster", "Disengage_Timer")]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1137433168 node_paths=PackedStringArray("missile", "launcher", "Caster", "Disengage_Timer") groups=["Alternate Explodable"]]
 script = ExtResource("1_uujwa")
 missile = NodePath("Node2D/missile")
 launcher = NodePath("Node2D/launcher")

@@ -25,6 +25,7 @@ Interactable=""
 Vent=""
 Heart=""
 Waypoint=""
+"Alternate Explodable"=""
 
 [gui]
 

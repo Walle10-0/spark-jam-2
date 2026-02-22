@@ -25,6 +25,8 @@ func _on_body_entered(body: Node) -> void:
 		body.damage(damage)
 	if body is IAmARobot || body.get_meta("destroy", false):
 		body.queue_free()
+	if body.is_in_group("Alternate Explodable"):
+		body.queue_free()
 	explosion.emitting = true
 	fuel.emitting = false
 	for child: Node in self.get_children():
