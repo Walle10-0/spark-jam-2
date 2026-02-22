@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cvw8m831ubqu7"]
+
+[ext_resource type="Texture2D" uid="uid://cypdu2c3wtsqb" path="res://tilemap/cracked-wall.png" id="1_inoir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbful"]
+size = Vector2(32, 32)
+
+[node name="StaticBody2D2" type="StaticBody2D" unique_id=51833663]
+metadata/destroy = true
+
+[node name="CrackedWall" type="Sprite2D" parent="." unique_id=119069856]
+z_index = -1
+texture = ExtResource("1_inoir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563189353]
+shape = SubResource("RectangleShape2D_tbful")

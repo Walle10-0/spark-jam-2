@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		self.linear_velocity += Vector2.from_angle(self.rotation) * speed * delta
 
 func _on_body_entered(body: Node) -> void:
-	if body is IAmARobot:
+	if body is IAmARobot or body.get_meta("destroy", false):
 		body.queue_free()
 	explosion.emitting = true
 	fuel.emitting = false

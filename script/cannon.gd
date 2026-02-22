@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if target != null:
 		if self.global_position.distance_to(target.global_position) < SIGHT:
 			target_dir = self.global_position.angle_to_point(target.global_position)
-			if reload > RELOAD_TIME:
+			if reload > RELOAD_TIME and abs(launcher.rotation - target_dir) < 1:
 				var new_shot: Node2D = missile_prefab.instantiate()
 				self.get_parent().add_child(new_shot)
 				new_shot.rotation = launcher.rotation
