@@ -32,6 +32,7 @@ var missile_reload: float = 0
 @export var max_health: Dictionary[String, int]
 @export var heart_icon: Dictionary[String, Texture2D]
 @export var max_speed: Dictionary[String, float]
+@export var camera_zoom: Dictionary[String, float]
 
 # state variables
 var is_dead = false
@@ -230,10 +231,7 @@ func death():
 		print("You fucking died")
 
 func updateCamera(delta):
-	if Form == "Mouse":
-		camera.zoom += (Vector2.ONE * 5 - camera.zoom) * delta
-	else:
-		camera.zoom += (Vector2.ONE * 2 - camera.zoom) * delta
+	camera.zoom += (Vector2.ONE * camera_zoom.get(Form, camera_zoom.get("Default", 2)) - camera.zoom) * delta
 
 func turretStuff(delta):
 	if Form == "Turret":

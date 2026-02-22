@@ -65,6 +65,11 @@ heart_icon = Dictionary[String, Texture2D]({
 max_speed = Dictionary[String, float]({
 "Mouse": 150.0
 })
+camera_zoom = Dictionary[String, float]({
+"Default": 2.0,
+"Mouse": 5.0,
+"Plant": 3.0
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530578927]
 shape = SubResource("RectangleShape2D_rkhd4")
