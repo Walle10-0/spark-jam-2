@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmjwd6mjcoyna" path="res://textures/Shifts/Plant.png" id="6_3058f"]
 [ext_resource type="Texture2D" uid="uid://bs15yafdb8rdy" path="res://textures/Shifts/Maus_Front.png" id="6_s8afp"]
 [ext_resource type="Texture2D" uid="uid://c36w0cbthygc8" path="res://textures/Shifts/Maus_Side.png" id="7_m13tt"]
+[ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="10_s8afp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rwis"]
 atlas = ExtResource("1_lekuh")
@@ -193,6 +194,10 @@ region = Rect2(640, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_baiip"]
 atlas = ExtResource("4_7rwis")
 region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gphv"]
+atlas = ExtResource("10_s8afp")
+region = Rect2(32, 0, 32, 32)
 
 [resource]
 animations = [{
@@ -445,6 +450,14 @@ animations = [{
 "loop": true,
 "name": &"Robot_side",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gphv")
+}],
+"loop": true,
+"name": &"Turret_default",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

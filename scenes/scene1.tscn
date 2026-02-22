@@ -282,7 +282,11 @@ position = Vector2(0, 1)
 z_index = 5
 position = Vector2(-425, 107)
 
-[node name="ShiftToken" parent="." unique_id=241752677 instance=ExtResource("4_dc6gq")]
+[node name="ShiftToken15" parent="." unique_id=241752677 instance=ExtResource("4_dc6gq")]
+position = Vector2(-657, 117)
+Shift_ID = "Turret"
+
+[node name="ShiftToken" parent="." unique_id=1446236731 instance=ExtResource("4_dc6gq")]
 position = Vector2(90, 24)
 Shift_ID = "Plant"
 
