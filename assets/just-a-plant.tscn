@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d3re65nj2pqbe"]
+
+[ext_resource type="Texture2D" uid="uid://dmjwd6mjcoyna" path="res://textures/Shifts/Plant.png" id="1_udqnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5bsy"]
+size = Vector2(10, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=353262759]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294423569]
+shape = SubResource("RectangleShape2D_i5bsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567493793]
+position = Vector2(0, -2.34)
+texture = ExtResource("1_udqnj")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://capirb7m8pi4m"]
+
+[ext_resource type="Script" path="res://script/commemorative_token.gd" id="1_kvk1w"]
+[ext_resource type="Texture2D" uid="uid://l6ds6txuku0x" path="res://textures/Shifts/Shift_Robot.png" id="1_lmgnv"]
+[ext_resource type="Texture2D" uid="uid://t0vcd4iobywq" path="res://textures/UI/Shift_Selector.png" id="1_tyrx2"]
+
+[node name="token" type="VBoxContainer" unique_id=555724977 node_paths=PackedStringArray("visual", "highlight_node", "counter")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 6
+script = ExtResource("1_kvk1w")
+visual = NodePath("visual")
+highlight_node = NodePath("visual/highlight")
+counter = NodePath("counter")
+
+[node name="visual" type="TextureRect" parent="." unique_id=414866928]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("1_lmgnv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="highlight" type="TextureRect" parent="visual" unique_id=853724924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tyrx2")
+
+[node name="counter" type="Label" parent="." unique_id=1779952227]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Text"
+horizontal_alignment = 1
