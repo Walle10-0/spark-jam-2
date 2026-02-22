@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 			missile.visible = true
 		else:
 			missile.visible = false
+	missile.rotation = launcher.rotation
 
 func initialize_player():
 	for Child in get_parent().get_children():
