@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c6v377njsnj5g"]
+[gd_scene format=3 uid="uid://ct4ykbsae6feu"]
 
 [ext_resource type="Script" uid="uid://7s3o6emcas5f" path="res://script/themostepiccutsceneofalltime.gd" id="1_4ns12"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lq0co"]
@@ -243,19 +243,16 @@ _data = {
 libraries/ = SubResource("AnimationLibrary_lybk1")
 autoplay = &"end-credits"
 script = ExtResource("1_4ns12")
-firstScene = "uid://bb1flk6de3ruk"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2061151914]
 position = Vector2(0, -10)
 zoom = Vector2(8, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1230018410]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(36.995, -8)
+position = Vector2(36, -8)
 sprite_frames = ExtResource("2_lq0co")
-animation = &"Alien_default"
+animation = &"Moonwalk_side"
 autoplay = "default"
-speed_scale = 4.0
 flip_h = true
 
 [node name="Coolblack" type="Sprite2D" parent="." unique_id=1275553566]

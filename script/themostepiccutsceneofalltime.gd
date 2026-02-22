@@ -4,7 +4,7 @@ extends AnimationPlayer
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	print("WE'RE DONE")
-	if not firstScene:
+	if firstScene:
 		get_tree().change_scene_to_file(firstScene)
 	else:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
