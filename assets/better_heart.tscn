@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d2b73d1dyjrxy"]
+
+[ext_resource type="Texture2D" uid="uid://ckmg5o411m4re" path="res://textures/UI/Heart_Pixel.png" id="2_8ttem"]
+
+[node name="icon2" type="TextureRect" unique_id=2134878237]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8ttem")
+expand_mode = 2
+stretch_mode = 5

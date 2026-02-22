@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dm3gan45uq6ih"]
 
 [ext_resource type="Script" uid="uid://b7egqilcwhjwg" path="res://script/character.gd" id="1_rkhd4"]
+[ext_resource type="Texture2D" uid="uid://5526s51x484t" path="res://textures/UI/Cheese_Heart.png" id="2_a5ia6"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lrhn5"]
-[ext_resource type="Texture2D" uid="uid://t0vcd4iobywq" path="res://textures/UI/Shift_Selector.png" id="3_lrhn5"]
 [ext_resource type="FontFile" uid="uid://munnv1c323j5" path="res://assets/Early GameBoy.ttf" id="4_my7n2"]
+[ext_resource type="Texture2D" uid="uid://cyoym3lj78rlv" path="res://textures/UI/coolred.png" id="5_0lw5n"]
 [ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="5_dp8ca"]
+[ext_resource type="Texture2D" uid="uid://ckmg5o411m4re" path="res://textures/UI/Heart_Pixel.png" id="6_2cgup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
@@ -39,23 +41,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera", "missile_thingy") groups=["Player"]]
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera", "missile_thingy", "heart_container", "token_container") groups=["Player"]]
+y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
-Shift_Selector = NodePath("ShiftSelector")
-Text_More = NodePath("HUD/Control/MoreText")
-Text_Less = NodePath("HUD/Control/LessText")
+Shift_Selector = NodePath("")
 Interaction_Detector = NodePath("Interaction Detector")
 Speech_Bubble = NodePath("Speech Bubble")
 Speech_Timeout = NodePath("Speech Timer")
 camera = NodePath("Camera2D")
 missile_thingy = NodePath("missile")
-
-[node name="ShiftSelector" type="Sprite2D" parent="." unique_id=61616892]
-position = Vector2(214, -109)
-texture = ExtResource("3_lrhn5")
+heart_container = NodePath("HUD/Control/MarginContainer/HBoxContainer2/hearts")
+token_container = NodePath("HUD/Control/MarginContainer/token")
+max_health = Dictionary[String, int]({
+"Mouse": 1
+})
+heart_icon = Dictionary[String, Texture2D]({
+"Default": ExtResource("6_2cgup"),
+"Mouse": ExtResource("2_a5ia6")
+})
+max_speed = Dictionary[String, float]({
+"Mouse": 150.0
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530578927]
 shape = SubResource("RectangleShape2D_rkhd4")
@@ -70,6 +79,7 @@ autoplay = "default"
 zoom = Vector2(2, 2)
 
 [node name="Speech Bubble" type="Label" parent="." unique_id=454287321]
+visible = false
 offset_left = -46.0
 offset_top = -29.0
 offset_right = 146.0
@@ -90,42 +100,37 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LessText" type="Label" parent="HUD/Control" unique_id=2127980695]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control" unique_id=1830753347]
 layout_mode = 1
-offset_left = 11.0
-offset_top = 40.0
-offset_right = 129.0
-offset_bottom = 84.0
-theme_override_fonts/font = ExtResource("4_my7n2")
-theme_override_font_sizes/font_size = 32
-text = "+100"
-
-[node name="MoreText" type="Label" parent="HUD/Control" unique_id=953837976]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -396.0
-offset_top = 40.0
-offset_right = -278.0
-offset_bottom = 84.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("4_my7n2")
-theme_override_font_sizes/font_size = 32
-text = "+100"
-horizontal_alignment = 2
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Control" unique_id=592646330]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 275.0
-offset_top = 749.0
-offset_right = 315.0
-offset_bottom = 789.0
-grow_horizontal = 0
-texture = ExtResource("3_lrhn5")
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Control/MarginContainer" unique_id=592637825]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="icon" type="TextureRect" parent="HUD/Control/MarginContainer/HBoxContainer2" unique_id=872102797]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+texture = ExtResource("5_0lw5n")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="hearts" type="HBoxContainer" parent="HUD/Control/MarginContainer/HBoxContainer2" unique_id=2018989696]
+layout_mode = 2
+
+[node name="token" type="HBoxContainer" parent="HUD/Control/MarginContainer" unique_id=362581210]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
 
 [node name="Interaction Detector" type="Area2D" parent="." unique_id=1994274900]
 

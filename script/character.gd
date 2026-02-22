@@ -1,58 +1,58 @@
 extends CharacterBody2D
 class_name Character
 
-enum Identity {Default, Plant, Mouse, Robot, Turrent}
-
+@export_subgroup("Stats")
+@export var Health = 3
 @export var speed: float = 300
 @export var friction: float = 4
-@export var identity: Identity = Identity.Default
 
-var is_dead = false
-
-var Health = 3
-var Health_List = []
-var Mouse_Health = 1
-var Mouse_Health_List = []
-
-var Form = "Alien"
-
-#Stuff for stored tokens
-var Shift_Tokens = []
-
+@export_subgroup("Links")
 @export var animatedSprite: AnimatedSprite2D
 @export var Shift_Selector: Node2D
-@export var Text_More: Label
-@export var Text_Less: Label
 @export var Interaction_Detector: Node2D
 @export var Speech_Bubble: Node
 @export var Speech_Timeout: Node
 @export var camera: Camera2D
 
+@export_subgroup("Missile")
 @export var missile_prefab: PackedScene = preload("res://assets/missile.tscn")
 @export var missile_thingy: AnimatedSprite2D
 @export var missile_RELOAD_TIME: float = 2.0
 var missile_reload: float = 0
 
-#Stuff for UI
-var Base_Position = Vector2(-220,-130)
-const SPACING = 40
-var Selector_Index = 0
-var ShiftOver = 0
+@export_subgroup("Hearts")
+@export var heart_container: BoxContainer
+@export var heart_template: PackedScene = preload("res://assets/better_heart.tscn")
 
-var Health_Position = Base_Position + Vector2(-SPACING,50)
+@export_subgroup("Token")
+@export var token_container: BoxContainer
+@export var token_temp: PackedScene = preload("res://assets/commemorative_token.tscn")
+
+@export_subgroup("Special")
+@export var max_health: Dictionary[String, int]
+@export var heart_icon: Dictionary[String, Texture2D]
+@export var max_speed: Dictionary[String, float]
+
+# state variables
+var is_dead = false
+var Form = "Alien"
+
+#Stuff for stored tokens
+var Shift_Tokens = []
+
+#Stuff for UI
+var Selector_Index = 0
 
 var Is_Overlapping = true
 var First_Entry = true
 
+# Amongus
 var Vent_Mode = false
 var Vents = []
 var Vent_Index = 0
 var Vent_Max = 0
 
 func _ready() -> void:
-	Speech_Bubble.visible = false
-	initialize_display_tokens()
-	initialize_health()
 	update_token_display()
 
 func _input(event: InputEvent) -> void:
@@ -60,90 +60,44 @@ func _input(event: InputEvent) -> void:
 		interaction_check()
 	if Vent_Mode == false:
 		if Input.is_action_just_pressed("Shift"):
-			use_shift_token(Selector_Index)
+			use_shift_token(Selector_Index % token_container.get_child_count())
 		if Input.is_action_just_pressed("Reset Shift"):
 			Form = "Alien"
-		if Input.is_action_just_pressed("button_1"):
-			if Shift_Tokens.size()>=1:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(0)
-		elif Input.is_action_just_pressed("button_2"):
-			if Shift_Tokens.size()>=2:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(1)
-		elif Input.is_action_just_pressed("button_3"):
-			if Shift_Tokens.size()>=3:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(2)
-		elif Input.is_action_just_pressed("button_4"):
-			if Shift_Tokens.size()>=4:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(3)
-		elif Input.is_action_just_pressed("button_5"):
-			if Shift_Tokens.size()>=5:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(4)
-		elif Input.is_action_just_pressed("button_6"):
-			if Shift_Tokens.size()>=6:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(5)
-		elif Input.is_action_just_pressed("button_7"):
-			if Shift_Tokens.size()>=7:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(6)
-		elif Input.is_action_just_pressed("button_8"):
-			if Shift_Tokens.size()>=8:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(7)
-		elif Input.is_action_just_pressed("button_9"):
-			if Shift_Tokens.size()>=9:
-				if Selector_Index > 8:
-					use_shift_token(Selector_Index-8)
-				else:
-					use_shift_token(8)
+		for n in 8:
+			if Input.is_action_just_pressed("button_"+str(n+1)):
+				use_shift_token(n)
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				if event.is_released():
-					if Selector_Index < Shift_Tokens.size()-1:
-						Selector_Index += 1
+					Selector_Index += 1
+					Selector_Index %= token_container.get_child_count()
 					update_token_display()
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				if event.is_released():
 					Selector_Index -= 1
-					if Selector_Index <= 0:
-						Selector_Index = 0
+					if Selector_Index < 0:
+						Selector_Index += token_container.get_child_count()
 					update_token_display()
+
+func update_velocity(delta: float) -> Vector2:
+	var actual_speed: float = max_speed.get(Form, self.speed)
+	if Input.is_action_pressed("up"):
+		velocity.y +=  -actual_speed * delta
+	if Input.is_action_pressed("down"):
+		velocity.y +=  actual_speed * delta
+	if Input.is_action_pressed("left"):
+		velocity.x +=  -actual_speed * delta
+	if Input.is_action_pressed("right"):
+		velocity.x +=  actual_speed * delta
+	velocity -= velocity * delta * friction
+	return velocity
 
 func _physics_process(delta: float) -> void:
 	check_interactables()
 	update_health()
 	if Vent_Mode == false:
 		visible = true
-		if Input.is_action_pressed("up"):
-			velocity.y +=  -speed * delta
-		if Input.is_action_pressed("down"):
-			velocity.y +=  speed * delta
-		if Input.is_action_pressed("left"):
-			velocity.x +=  -speed * delta
-		if Input.is_action_pressed("right"):
-			velocity.x +=  speed * delta
-		velocity -= velocity * delta * friction
+		update_velocity(delta)
 		if Form != "Plant" && Form != "Turret":
 			move_and_slide()
 		update_animation(velocity)
@@ -163,109 +117,37 @@ func _physics_process(delta: float) -> void:
 			if Vent.Sequence_ID == Vent_Index:
 				print(Vent.Sequence_ID)
 				position = Vent.position
-	#updateCamera(delta)
-
-func initialize_display_tokens():
-	var Display_Token = preload("res://assets/display_token.tscn")
-	for n in 9:
-		var New_Display_Token = Display_Token.instantiate()
-		New_Display_Token.ID = n
-		add_child(New_Display_Token)
-
-func initialize_health():
-	var Heart = preload("res://assets/heart.tscn")
-	for n in Health:
-		var New_Heart = Heart.instantiate()
-		New_Heart.ID = n
-		New_Heart.Type = "Health"
-		New_Heart.position = Health_Position + Vector2(SPACING*n,0)
-		add_child(New_Heart)
-	for n in Mouse_Health:
-		var New_Heart = Heart.instantiate()
-		New_Heart.ID = n
-		New_Heart.Type = "Mouse"
-		New_Heart.position = Health_Position + Vector2(SPACING*n,0)
-		New_Heart.visible = false
-		add_child(New_Heart)
-	for Child in get_children():
-		if Child.is_in_group("Heart"):
-			if Child.Type == "Health":
-				Health_List.append(Child)
-			if Child.Type == "Mouse":
-				Mouse_Health_List.append(Child)
+	updateCamera(delta)
 
 func get_shift_token(Shift_ID):
 	Shift_Tokens.append(Shift_ID)
 	update_token_display()
 
 func use_shift_token(Remove_Index):
-	if Shift_Tokens.size() > 0:
-		Form = Shift_Tokens[Remove_Index]
-		if Selector_Index == Shift_Tokens.size()-1:
-			Shift_Tokens.remove_at(Remove_Index)
-			Selector_Index -= 1
-		else:
-			Shift_Tokens.remove_at(Remove_Index)
-		if Selector_Index < 0:
-			Selector_Index = 0
+	var my_token: commemorative_token = token_container.get_child(Remove_Index)
+	if my_token and my_token.Shift_ID in Shift_Tokens:
+		Shift_Tokens.remove_at(Shift_Tokens.find(my_token.Shift_ID))
+		Form = my_token.Shift_ID
 		update_token_display()
 
 func update_token_display():
-	if Shift_Tokens.size() < 9:
-		Text_Less.visible = false
-		Text_More.visible = false
-	else:
-		if Selector_Index <= 8:
-			Text_Less.visible = false
-			Text_More.visible = true
-			Text_More.text = "+"+str(Shift_Tokens.size()-9)
-			if Text_More.text == "+0":
-				Text_More.visible = false
-		elif Selector_Index != Shift_Tokens.size()-1:
-			Text_Less.visible = true
-			Text_More.visible = true
-			Text_Less.text = "+"+str(Selector_Index+1-9)
-			Text_More.text = "+"+str(Shift_Tokens.size()-Selector_Index-1)
-		else:
-			Text_Less.visible = true
-			Text_More.visible = false
-			Text_Less.text = "+"+str(Selector_Index+1-9)
-	if Shift_Tokens.size() == 0:
-		Shift_Selector.visible = false
-	else:
-		Shift_Selector.visible = true
-	if Selector_Index < 9 && Shift_Tokens.size() > 0:
-		Shift_Selector.position = Base_Position + Vector2(SPACING*(Selector_Index),0)
-	if Shift_Tokens.size() > 9:
-		for Display_Index in 9:
-			for Child in get_children():
-				if Child.is_in_group("Display Token"):
-					if Child.ID == Display_Index:
-						if Selector_Index > 8:
-							Child.Shift_ID = Shift_Tokens[Selector_Index-9+Display_Index+1]
-						else:
-							Child.Shift_ID = Shift_Tokens[Display_Index]
-						Child.visible = true
-	elif Shift_Tokens.size() == 0:
-		for Child in get_children():
-			if Child.is_in_group("Display Token"):
-				Child.visible = false
-	elif Shift_Tokens.size() <= 9:
-		for Display_Index in Shift_Tokens.size():
-			for Child in get_children():
-				if Child.is_in_group("Display Token"):
-					if Child.ID <= Shift_Tokens.size():
-						Child.visible = true
-					else:
-						Child.visible = false
-					if Child.ID == Display_Index:
-						Child.Shift_ID = Shift_Tokens[Display_Index]
-	for Child in get_children():
-		if Child.is_in_group("Display Token"):
-			if Child.ID > Shift_Tokens.size()-1:
-				Child.visible = false
-			Child.position = Base_Position + Vector2(SPACING*Child.ID,0)
-			Child.update_texture()
+	for my_inventory: commemorative_token in token_container.get_children():
+		my_inventory.reset_number()
+	for token: String in Shift_Tokens:
+		var found: bool = false
+		for my_inventory: commemorative_token in token_container.get_children():
+			if my_inventory.Shift_ID == token:
+				found = true
+				my_inventory.incr_number()
+		if not found:
+			var new_token: commemorative_token = token_temp.instantiate()
+			new_token.ID = token_container.get_child_count()
+			token_container.add_child(new_token)
+			new_token.Shift_ID = token
+			new_token.update_texture()
+			new_token.incr_number()
+	for my_inventory: commemorative_token in token_container.get_children():
+		my_inventory.highlight(Selector_Index == my_inventory.ID)
 
 func update_animation(direction: Vector2):
 	var static_forms = ["Plant", "Turret"]
@@ -323,33 +205,24 @@ func interaction_check():
 			character_say(Interaction_Entity.Fail_Speech)
 
 func update_health():
-	for Heart in Health_List:
-		Heart.visible = false
-	for Heart in Mouse_Health_List:
-		Heart.visible = false
-	if Form == "Mouse":
-		for Heart in Mouse_Health_List:
-			if Heart.ID+1 <= Mouse_Health:
-				Heart.visible = true
-				Heart.Visual.play("mouse")
-		#Check for death
-		if Mouse_Health <= 0:
-			death()
-	else:
-		for Heart in Health_List:
-			if Heart.ID+1 <= Health:
-				Heart.visible = true
-				Heart.Visual.play("heart")
-		
-		#Check for death
-		if Health <= 0:
-			death()
+	var health_counter: int = 0
+	if heart_container.get_child_count() < Health:
+		for n in Health - heart_container.get_child_count():
+			heart_container.add_child(heart_template.instantiate())
+	for heart: TextureRect in self.heart_container.get_children():
+		heart.visible = (health_counter < min(Health, max_health.get(Form, Health)))
+		if heart_icon.has("Default"):
+			heart.texture = heart_icon.get(Form, heart_icon.get("Default"))
+		else:
+			heart_icon.get_or_add("Default", heart.texture)
+		health_counter += 1
+
+	#Check for death
+	if Health <= 0:
+		death()
 
 func damage(damage):
-	if Form == "Mouse":
-		Mouse_Health -= damage
-	else:
-		Health -= damage
+	Health = min(Health, max_health.get(Form, Health)) - damage
 
 func death():
 	if is_dead == false:
@@ -358,7 +231,7 @@ func death():
 
 func updateCamera(delta):
 	if Form == "Mouse":
-		camera.zoom += (Vector2.ONE * 6 - camera.zoom) * delta
+		camera.zoom += (Vector2.ONE * 5 - camera.zoom) * delta
 	else:
 		camera.zoom += (Vector2.ONE * 2 - camera.zoom) * delta
 
