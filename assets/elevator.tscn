@@ -30,6 +30,7 @@ size = Vector2(23, 31)
 script = ExtResource("1_g1s1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=290399682]
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_s0xri")
 animation = &"open"
 offset = Vector2(16, 20)

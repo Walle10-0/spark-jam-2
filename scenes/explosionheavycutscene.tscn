@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ct4ykbsae6feu"]
+[gd_scene format=3 uid="uid://c6v377njsnj5g"]
 
 [ext_resource type="Script" uid="uid://7s3o6emcas5f" path="res://script/themostepiccutsceneofalltime.gd" id="1_4ns12"]
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lq0co"]
@@ -158,7 +158,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_w5u0r"]
 resource_name = "end-credits"
-length = 11.666667
+length = 13.766666
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,7 +166,7 @@ tracks/0/path = NodePath("AnimationPlayer/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6333333, 4.2, 5.133333),
+"times": PackedFloat32Array(0.23333335, 2.2000008, 5.333334, 6.2666674),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [&"Alien_default", &"Moonwalk_side", &"Alien_default", &"Alien_back"]
@@ -178,7 +178,7 @@ tracks/1/path = NodePath("AnimationPlayer/AnimatedSprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.6333333, 4.1000004, 5.133333, 9.566666),
+"times": PackedFloat32Array(2.2000008, 5.2333345, 6.2666674, 10.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(36.995, -8), Vector2(-11.85, -8), Vector2(-11.849998, -8), Vector2(-11.85, 1.715)]
@@ -190,7 +190,7 @@ tracks/2/path = NodePath("AnimationPlayer/Sprite0001:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.6666666, 4.166667),
+"times": PackedFloat32Array(2.233334, 5.300001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-20.455, -8.955), Vector2(23.87, -8.955)]
@@ -202,7 +202,7 @@ tracks/3/path = NodePath("AnimationPlayer/AnimatedSprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(5.133333, 9.533333),
+"times": PackedFloat32Array(6.2666674, 10.666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.27, 0.27)]
@@ -214,7 +214,7 @@ tracks/4/path = NodePath("AnimationPlayer/AnimatedSprite2D:self_modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 8.966666, 9.466667),
+"times": PackedFloat32Array(0.23333335, 1.2333333, 10.1, 10.600001),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -226,7 +226,7 @@ tracks/5/path = NodePath("AnimationPlayer/CanvasLayer/Label:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(9.666667, 10.433333),
+"times": PackedFloat32Array(10.800001, 11.566668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(3.495, 3.495)]
@@ -249,10 +249,13 @@ position = Vector2(0, -10)
 zoom = Vector2(8, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1230018410]
-position = Vector2(36, -8)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-11.849998, 1.7150002)
+scale = Vector2(0.26999998, 0.26999998)
 sprite_frames = ExtResource("2_lq0co")
-animation = &"Moonwalk_side"
+animation = &"Alien_back"
 autoplay = "default"
+speed_scale = 4.0
 flip_h = true
 
 [node name="Coolblack" type="Sprite2D" parent="." unique_id=1275553566]
@@ -264,7 +267,7 @@ texture = ExtResource("8_oglmf")
 
 [node name="Sprite0001" type="Sprite2D" parent="." unique_id=1025784078]
 z_index = -1
-position = Vector2(-20.455, -8.955)
+position = Vector2(23.87, -8.955)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_w5u0r")
 
@@ -282,7 +285,7 @@ offset_right = 52.0
 offset_bottom = 18.554993
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(3.495, 3.495)
 pivot_offset = Vector2(51.17, 94.75)
 text = "The End"
 

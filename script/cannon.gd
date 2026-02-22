@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 			missile.visible = true
 		else:
 			missile.visible = false
+	missile.rotation = launcher.rotation
 
 func initialize_player():
 	for Child in get_parent().get_children():
@@ -62,7 +63,7 @@ func detection():
 	if Player:
 		if Player.global_position.distance_to(global_position) < SIGHT:
 			if Caster.is_colliding():
-				if Caster.get_collider().is_in_group("Player"):
+				if Caster.get_collider() and Caster.get_collider().is_in_group("Player"):
 					if Can_See.has(Player.Form):
 						sees_player = true
 					else:
