@@ -28,6 +28,7 @@ position = Vector2(128, 288)
 
 [node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("3_ogljr")]
 position = Vector2(-896, -1376)
+Next_Scene = "explosionheavycutscene"
 
 [node name="Random Token" parent="." unique_id=753814630 instance=ExtResource("4_ogljr")]
 position = Vector2(352, 224)

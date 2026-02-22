@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://qpabxlr5qp2k"]
+
+[ext_resource type="TileSet" uid="uid://djuig3tyegklu" path="res://tilemap/lab_tiles.tres" id="1_jckoh"]
+[ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="2_5sbuv"]
+[ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="3_8owee"]
+
+[node name="Another Level" type="Node2D" unique_id=670859564]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1642887326]
+z_index = -100
+tile_set = ExtResource("1_jckoh")
+metadata/_edit_lock_ = true
+
+[node name="RigidBody2D" parent="." unique_id=515593830 instance=ExtResource("2_5sbuv")]
+position = Vector2(-19, 5)
+
+[node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("3_8owee")]
+position = Vector2(25, -3)
