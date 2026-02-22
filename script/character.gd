@@ -28,6 +28,11 @@ var Shift_Tokens = []
 @export var Speech_Timeout: Node
 @export var camera: Camera2D
 
+@export var missile_prefab: PackedScene = preload("res://assets/missile.tscn")
+@export var missile_thingy: AnimatedSprite2D
+@export var missile_RELOAD_TIME: float = 2.0
+var missile_reload: float = 0
+
 #Stuff for UI
 var Base_Position = Vector2(-220,-130)
 const SPACING = 40
@@ -142,6 +147,7 @@ func _physics_process(delta: float) -> void:
 		if Form != "Plant" && Form != "Turret":
 			move_and_slide()
 		update_animation(velocity)
+		turretStuff(delta)
 	else:
 		visible = false
 		if Input.is_action_just_pressed("left"):
@@ -262,8 +268,11 @@ func update_token_display():
 			Child.update_texture()
 
 func update_animation(direction: Vector2):
-	if direction.length() < 1:
+	var static_forms = ["Plant", "Turret"]
+	if direction.length() < 1 or Form in static_forms:
 		animatedSprite.play(Form+"_default")
+		if direction.length() > 1:
+			animatedSprite.flip_h = direction.x < 0
 	else:
 		if abs(direction.x) > abs(direction.y):
 			animatedSprite.flip_h = direction.x < 0
@@ -352,3 +361,23 @@ func updateCamera(delta):
 		camera.zoom += (Vector2.ONE * 6 - camera.zoom) * delta
 	else:
 		camera.zoom += (Vector2.ONE * 2 - camera.zoom) * delta
+
+func turretStuff(delta):
+	if Form == "Turret":
+		missile_thingy.visible = true
+		missile_reload += delta
+		missile_thingy.rotation = self.global_position.angle_to_point(get_global_mouse_position())
+		if missile_reload < missile_RELOAD_TIME:
+			missile_thingy.animation = "empty"
+		else:
+			if Input.is_action_just_pressed("Interact"):
+				missile_thingy.animation = "empty"
+				missile_reload = 0
+				var newMissile: Node2D = missile_prefab.instantiate()
+				self.get_parent().add_child(newMissile)
+				newMissile.global_position = missile_thingy.global_position
+				newMissile.rotation = missile_thingy.rotation
+			else:
+				missile_thingy.animation = "load"
+	else:
+		missile_thingy.visible = false

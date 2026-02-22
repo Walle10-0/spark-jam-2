@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="2_lrhn5"]
 [ext_resource type="Texture2D" uid="uid://t0vcd4iobywq" path="res://textures/UI/Shift_Selector.png" id="3_lrhn5"]
 [ext_resource type="FontFile" uid="uid://munnv1c323j5" path="res://assets/Early GameBoy.ttf" id="4_my7n2"]
+[ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="5_5ybut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
@@ -11,7 +12,34 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrhn5"]
 size = Vector2(10, 10)
 
-[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera") groups=["Player"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_82ej4"]
+atlas = ExtResource("5_5ybut")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ybut"]
+atlas = ExtResource("5_5ybut")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wabo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82ej4")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ybut")
+}],
+"loop": true,
+"name": &"load",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera", "missile_thingy") groups=["Player"]]
 script = ExtResource("1_rkhd4")
 animatedSprite = NodePath("AnimatedSprite2D")
 Shift_Selector = NodePath("ShiftSelector")
@@ -21,6 +49,7 @@ Interaction_Detector = NodePath("Interaction Detector")
 Speech_Bubble = NodePath("Speech Bubble")
 Speech_Timeout = NodePath("Speech Timer")
 camera = NodePath("Camera2D")
+missile_thingy = NodePath("missile")
 
 [node name="ShiftSelector" type="Sprite2D" parent="." unique_id=61616892]
 position = Vector2(214, -109)
@@ -32,7 +61,7 @@ shape = SubResource("RectangleShape2D_rkhd4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=330401231]
 position = Vector2(0, -9.4)
 sprite_frames = ExtResource("2_lrhn5")
-animation = &"Mouse_back"
+animation = &"Turret_default"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=828296981]
@@ -103,5 +132,11 @@ shape = SubResource("RectangleShape2D_lrhn5")
 
 [node name="Speech Timer" type="Timer" parent="." unique_id=109468494]
 one_shot = true
+
+[node name="missile" type="AnimatedSprite2D" parent="." unique_id=2079699150]
+z_index = -1
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_5wabo")
+animation = &"empty"
 
 [connection signal="timeout" from="Speech Timer" to="." method="_on_speech_timer_timeout"]
