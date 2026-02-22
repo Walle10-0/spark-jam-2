@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://6oaj53dmpy1c" path="res://assets/cannon.tscn" id="7_g8jyp"]
 [ext_resource type="PackedScene" uid="uid://djjiq84af7h48" path="res://assets/pathfinding_waypoint.tscn" id="8_2iuxu"]
 [ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="9_0w056"]
+[ext_resource type="PackedScene" uid="uid://ckba8005yeot4" path="res://assets/magnet.tscn" id="9_2apvo"]
 [ext_resource type="PackedScene" path="res://assets/cracked.tscn" id="9_trsnf"]
+[ext_resource type="PackedScene" uid="uid://tcoky3megyp7" path="res://assets/door.tscn" id="10_0w056"]
+[ext_resource type="PackedScene" uid="uid://qonvcjdcyyvx" path="res://assets/lever.tscn" id="11_2apvo"]
+[ext_resource type="PackedScene" uid="uid://ceqowqdxswpjg" path="res://assets/random_token.tscn" id="12_q30rc"]
 
 [node name="Scene1" type="Node2D" unique_id=63178606]
 position = Vector2(0, 1)
@@ -126,3 +130,33 @@ Shift_ID = "Turret"
 [node name="ShiftToken16" parent="." unique_id=150721991 instance=ExtResource("2_2iuxu")]
 position = Vector2(-467, 226)
 Shift_ID = "Turret"
+
+[node name="Magnet" parent="." unique_id=1321831170 instance=ExtResource("9_2apvo")]
+position = Vector2(-242, 245)
+
+[node name="Door" parent="." unique_id=1183399521 instance=ExtResource("10_0w056")]
+position = Vector2(-228, 144)
+Door_ID = "DOOR"
+
+[node name="Lever" parent="." unique_id=240059747 instance=ExtResource("11_2apvo")]
+position = Vector2(-422, 306)
+ID = "DOOR"
+
+[node name="Door2" parent="." unique_id=1020440872 instance=ExtResource("10_0w056")]
+position = Vector2(-490, 291)
+Door_ID = "DOOR"
+
+[node name="Random Token" parent="." unique_id=753814630 instance=ExtResource("12_q30rc")]
+position = Vector2(-749, 298)
+
+[node name="Random Token2" parent="." unique_id=1661427660 instance=ExtResource("12_q30rc")]
+position = Vector2(-747, 342)
+
+[node name="Random Token3" parent="." unique_id=2129442734 instance=ExtResource("12_q30rc")]
+position = Vector2(-829, 340)
+
+[node name="Random Token4" parent="." unique_id=73061393 instance=ExtResource("12_q30rc")]
+position = Vector2(-840, 301)
+
+[node name="Random Token5" parent="." unique_id=2097031228 instance=ExtResource("12_q30rc")]
+position = Vector2(-893, 341)

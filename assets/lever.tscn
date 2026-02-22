@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://qonvcjdcyyvx"]
+
+[ext_resource type="Script" uid="uid://46vtokj1vo7j" path="res://script/lever.gd" id="1_ucuqg"]
+[ext_resource type="Texture2D" uid="uid://bhnl1plujjlrq" path="res://textures/Doors/Switch_1.png" id="2_xkgo7"]
+[ext_resource type="Texture2D" uid="uid://djd8eishbvo27" path="res://textures/Doors/Switch_2.png" id="3_w1uds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rv1xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xkgo7")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w1uds")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va4kc"]
+size = Vector2(24, 26)
+
+[node name="Lever" type="Node2D" unique_id=240059747 groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_ucuqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=896321607]
+sprite_frames = SubResource("SpriteFrames_rv1xs")
+animation = &"on"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1488903380]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1379909997]
+shape = SubResource("RectangleShape2D_va4kc")

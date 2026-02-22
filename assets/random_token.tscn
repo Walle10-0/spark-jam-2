@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ceqowqdxswpjg"]
+
+[ext_resource type="Script" uid="uid://c4kqhgyk5eh02" path="res://random_token.gd" id="1_t1x8p"]
+[ext_resource type="Texture2D" uid="uid://con1l78f5pkcv" path="res://textures/UI/coolblack.png" id="2_lxcuy"]
+
+[node name="Random Token" type="Node2D" unique_id=753814630]
+script = ExtResource("1_t1x8p")
+
+[node name="Coolblack" type="Sprite2D" parent="." unique_id=2135618186]
+texture = ExtResource("2_lxcuy")

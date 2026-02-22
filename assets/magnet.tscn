@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckba8005yeot4"]
+
+[ext_resource type="Script" uid="uid://cibaummu4vyqw" path="res://script/magnet.gd" id="1_axep5"]
+[ext_resource type="Texture2D" uid="uid://tlqnigto4etn" path="res://textures/robot/Magnet.png" id="1_iy7o2"]
+
+[node name="Magnet" type="Node2D" unique_id=1321831170 groups=["Magnet"]]
+script = ExtResource("1_axep5")
+
+[node name="Magnet" type="Sprite2D" parent="." unique_id=1912561842]
+scale = Vector2(2, 2)
+texture = ExtResource("1_iy7o2")

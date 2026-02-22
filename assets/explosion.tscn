@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b0k2pfv8daxy6"]
+
+[ext_resource type="Script" uid="uid://bki8bpun1isns" path="res://script/explosion.gd" id="1_jv8ym"]
+
+[sub_resource type="Curve" id="Curve_gyoj2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71621627, 0.7191012), -1.4253612, -1.4253612, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3fc1"]
+curve = SubResource("Curve_gyoj2")
+
+[sub_resource type="Curve" id="Curve_cih6h"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mu8di"]
+curve = SubResource("Curve_cih6h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18n7b"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(5, 0, 0)
+velocity_pivot = Vector3(-1, 0, 0)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_mu8di")
+color = Color(1, 0.4509804, 0.25490198, 1)
+alpha_curve = SubResource("CurveTexture_d3fc1")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[node name="Explosion" type="Node2D" unique_id=246301816]
+script = ExtResource("1_jv8ym")
+
+[node name="explosion" type="GPUParticles2D" parent="." unique_id=1964939602]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_18n7b")

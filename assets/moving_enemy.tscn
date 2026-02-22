@@ -421,7 +421,7 @@ _data = {
 &"RESET": SubResource("Animation_au5tu")
 }
 
-[node name="Moving Enemy" type="CharacterBody2D" unique_id=1282150651 node_paths=PackedStringArray("animatedSprite", "Nav_Agent", "Caster")]
+[node name="Moving Enemy" type="CharacterBody2D" unique_id=1282150651 node_paths=PackedStringArray("animatedSprite", "Nav_Agent", "Caster") groups=["Robot"]]
 script = ExtResource("1_nwrgi")
 animatedSprite = NodePath("Visual")
 Nav_Agent = NodePath("NavigationAgent2D")

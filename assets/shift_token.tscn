@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://ls2l50ng7wtt"]
 
 [ext_resource type="Script" uid="uid://c1tsadblc8ncg" path="res://script/shift_token.tscn.gd" id="1_ldftq"]
-[ext_resource type="Texture2D" uid="uid://b657ey70i5lh3" path="res://textures/shifts/Shift_Plant.png" id="1_lxhur"]
+[ext_resource type="Texture2D" uid="uid://b657ey70i5lh3" path="res://textures/Shifts/Shift_Plant.png" id="1_lxhur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxhur"]
 radius = 11.0
 
 [node name="ShiftToken" type="Node2D" unique_id=241752677 groups=["Shift Token"]]
+z_index = 1
 script = ExtResource("1_ldftq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=888404008]

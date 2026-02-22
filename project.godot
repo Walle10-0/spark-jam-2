@@ -27,6 +27,9 @@ Heart=""
 Waypoint=""
 "Alternate Explodable"=""
 "Map Connector"=""
+Magnet=""
+Robot=""
+Door=""
 
 [gui]
 

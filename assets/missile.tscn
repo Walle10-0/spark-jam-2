@@ -45,20 +45,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6kld"]
 size = Vector2(10, 10)
 
-[sub_resource type="Curve" id="Curve_d3fc1"]
+[sub_resource type="Curve" id="Curve_qcqkr"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71621627, 0.7191012), -1.4253612, -1.4253612, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_jb4dm"]
-curve = SubResource("Curve_d3fc1")
+curve = SubResource("Curve_qcqkr")
 
-[sub_resource type="Curve" id="Curve_mu8di"]
+[sub_resource type="Curve" id="Curve_p6kld"]
 _limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_817wu"]
-curve = SubResource("Curve_mu8di")
+curve = SubResource("Curve_p6kld")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7artu"]
 particle_flag_disable_z = true
@@ -74,6 +74,21 @@ alpha_curve = SubResource("CurveTexture_jb4dm")
 hue_variation_min = -0.100000024
 hue_variation_max = 0.09999997
 
+[sub_resource type="Curve" id="Curve_d3fc1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71621627, 0.7191012), -1.4253612, -1.4253612, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3fc1"]
+curve = SubResource("Curve_d3fc1")
+
+[sub_resource type="Curve" id="Curve_mu8di"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mu8di"]
+curve = SubResource("Curve_mu8di")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqxkk"]
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(5, 0, 0)
@@ -84,9 +99,9 @@ initial_velocity_min = 20.0
 initial_velocity_max = 40.0
 gravity = Vector3(0, 0, 0)
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_817wu")
+scale_curve = SubResource("CurveTexture_mu8di")
 color = Color(1, 0.4509804, 0.25490198, 1)
-alpha_curve = SubResource("CurveTexture_jb4dm")
+alpha_curve = SubResource("CurveTexture_d3fc1")
 hue_variation_min = -0.100000024
 hue_variation_max = 0.09999997
 
