@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="spark-jam-2"
+config/name="abducted"
+config/version="1.0"
 run/main_scene="uid://dv7f8of6y77a7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://textures/icon.svg"
+boot_splash/image="uid://bm6kkge7sp6yb"
+config/icon="uid://dmjwd6mjcoyna"
 
 [autoload]
 
