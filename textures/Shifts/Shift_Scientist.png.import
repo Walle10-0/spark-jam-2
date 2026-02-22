@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bisgvldmbngtj"
-path="res://.godot/imported/Shift_Plant.png-29353665cdea58b6a470695ecc643295.ctex"
+uid="uid://mh8ydln722fn"
+path="res://.godot/imported/Shift_Scientist.png-c88ead93db08b848c82d743ab510f937.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Shifts/Shift_Plant.png"
-dest_files=["res://.godot/imported/Shift_Plant.png-29353665cdea58b6a470695ecc643295.ctex"]
+source_file="res://textures/Shifts/Shift_Scientist.png"
+dest_files=["res://.godot/imported/Shift_Scientist.png-c88ead93db08b848c82d743ab510f937.ctex"]
 
 [params]
 
