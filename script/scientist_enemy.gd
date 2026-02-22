@@ -19,6 +19,7 @@ var Last_Seen_ID = ""
 var Player
 
 @export var Can_See = ["Alien","Mouse","Turret","Scientist"]
+@onready var LaserText = $Label
 
 @export var Waypoint_ID = ""
 @export var Waypoint_List = []
@@ -90,6 +91,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func update_animation(direction: Vector2):
+	if LaserAnim.is_playing() == false:
+		LaserText.visible = false
+	else:
+		LaserText.visible = true
 	if direction.length() < 1:
 		animatedSprite.play("default" + bot_state)
 	else:

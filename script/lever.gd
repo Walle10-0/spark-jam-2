@@ -8,7 +8,7 @@ extends Node2D
 @export var Is_Overlapping = false
 
 @export var Fail_Speech = "I'm too weak!"
-@export var Can_Interact_With = ["Alien","Robot"]
+@export var Can_Interact_With = ["Alien","Robot","Scientist"]
 
 @onready var Display = $AnimatedSprite2D
 
