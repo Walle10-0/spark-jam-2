@@ -90,13 +90,14 @@ alpha_curve = SubResource("CurveTexture_jb4dm")
 hue_variation_min = -0.100000024
 hue_variation_max = 0.09999997
 
-[node name="Missile" type="RigidBody2D" unique_id=121466282 node_paths=PackedStringArray("fuel", "explosion")]
+[node name="Missile" type="RigidBody2D" unique_id=121466282 node_paths=PackedStringArray("fuel", "explosion", "collisions")]
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_qcqkr")
 fuel = NodePath("fuel")
 explosion = NodePath("explosion")
+collisions = NodePath("CollisionShape2D")
 
 [node name="missile" type="AnimatedSprite2D" parent="." unique_id=1429215372]
 z_index = -1
@@ -105,6 +106,7 @@ animation = &"new_animation_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=955641631]
 shape = SubResource("RectangleShape2D_p6kld")
+disabled = true
 
 [node name="fuel" type="GPUParticles2D" parent="." unique_id=841057249]
 amount = 11

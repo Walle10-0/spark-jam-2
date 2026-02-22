@@ -52,7 +52,6 @@ launcher = NodePath("Node2D/launcher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917653917]
 shape = SubResource("RectangleShape2D_uujwa")
-disabled = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1457132968]
 position = Vector2(0, -2.5)
