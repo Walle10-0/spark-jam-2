@@ -19,6 +19,10 @@ config/icon="res://textures/icon.svg"
 
 Global_Storage="*uid://bf04ar7l4d23h"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 "Shift Token"=""
