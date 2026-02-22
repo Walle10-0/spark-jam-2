@@ -15,6 +15,10 @@ run/main_scene="uid://cq7sn6umybaa3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://textures/icon.svg"
 
+[autoload]
+
+Global_Storage="*uid://bf04ar7l4d23h"
+
 [global_group]
 
 "Shift Token"=""

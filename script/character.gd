@@ -9,6 +9,8 @@ enum Identity {Default, Plant, Mouse, Robot, Turrent}
 
 var locked = false
 var is_dead = false
+var next_scene_time = false
+var Next_Scene_A
 
 var Health = 3
 var Health_List = []
@@ -50,11 +52,15 @@ var Vents = []
 var Vent_Index = 0
 var Vent_Max = 0
 
+@onready var Fader = $Fader
+
 func _ready() -> void:
+	load_global_storage()
 	Speech_Bubble.visible = false
 	initialize_display_tokens()
 	initialize_health()
 	update_token_display()
+	Fader.play("fade_in")
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact"):
@@ -359,7 +365,7 @@ func death():
 	if is_dead == false:
 		is_dead = true
 		locked = true
-		print("You fucking died")
+		Fader.play("fade_out")
 
 func updateCamera(delta):
 	if Form == "Mouse":
@@ -388,5 +394,38 @@ func turretStuff(delta):
 		missile_thingy.visible = false
 
 func Next_Scene(Scene_Name):
+	Next_Scene_A = "res://scenes/"+Scene_Name+".tscn"
 	locked = true
-	visible = false
+	animatedSprite.visible = false
+	Fader.play("fade_out")
+	next_scene_time = true
+
+
+func _on_fader_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_out":
+		if next_scene_time == true:
+			print("AAAAAAAA")
+			update_global_storage()
+			Global_Storage.Progress += 1
+			get_tree().change_scene_to_file(Next_Scene_A)
+		if is_dead == true:
+			reset_global_storage()
+			get_tree().change_scene_to_file("res://scenes/death.tscn")
+
+func update_global_storage():
+	Global_Storage.Health = Health
+	Global_Storage.Mouse_Health = Mouse_Health
+	Global_Storage.Form = Form
+	Global_Storage.Tokens = Shift_Tokens
+
+func load_global_storage():
+	Health = Global_Storage.Health
+	Mouse_Health = Global_Storage.Mouse_Health
+	Form = Global_Storage.Form
+	Shift_Tokens = Global_Storage.Tokens
+
+func reset_global_storage():
+	Global_Storage.Health = 3
+	Global_Storage.Mouse_Health = 1
+	Global_Storage.Form = "Alien"
+	Global_Storage.Tokens = []

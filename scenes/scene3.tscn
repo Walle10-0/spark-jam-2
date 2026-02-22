@@ -163,4 +163,5 @@ position = Vector2(-840, 301)
 position = Vector2(-893, 341)
 
 [node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("13_g8jyp")]
-position = Vector2(-595, 309)
+position = Vector2(-616, -77)
+Next_Scene = "scene_4"

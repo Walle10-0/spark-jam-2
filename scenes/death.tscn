@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://hglrg25o2f8a"]
+
+[ext_resource type="Texture2D" uid="uid://con1l78f5pkcv" path="res://textures/UI/coolblack.png" id="1_0hhgj"]
+[ext_resource type="Script" uid="uid://cgcam34hcwav2" path="res://script/death.gd" id="1_tjai8"]
+[ext_resource type="FontFile" uid="uid://munnv1c323j5" path="res://assets/Early GameBoy.ttf" id="2_w8wr1"]
+
+[sub_resource type="Animation" id="Animation_q1r8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dynamic Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tjai8"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dynamic Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1r8t"]
+_data = {
+&"RESET": SubResource("Animation_q1r8t"),
+&"default": SubResource("Animation_tjai8")
+}
+
+[node name="Death" type="Node2D" unique_id=1886849375]
+script = ExtResource("1_tjai8")
+
+[node name="Coolblack" type="Sprite2D" parent="." unique_id=652811552]
+z_index = -4096
+position = Vector2(572.25, 325.25)
+scale = Vector2(40.859375, 23.546875)
+texture = ExtResource("1_0hhgj")
+metadata/_edit_lock_ = true
+
+[node name="Dynamic Label" type="Label" parent="." unique_id=1277730945]
+offset_left = 51.0
+offset_top = 151.0
+offset_right = 1150.0
+offset_bottom = 550.0
+theme_override_fonts/font = ExtResource("2_w8wr1")
+theme_override_font_sizes/font_size = 32
+text = "The shifter made it past X floors before being contained "
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label3" type="Label" parent="." unique_id=433398916]
+offset_left = 51.0
+offset_top = 264.0
+offset_right = 1150.0
+offset_bottom = 663.0
+theme_override_fonts/font = ExtResource("2_w8wr1")
+theme_override_font_sizes/font_size = 32
+text = "Mandatory training seminars are in order for all security personell"
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label" type="Label" parent="." unique_id=1152858819]
+offset_left = 49.0
+offset_top = 39.0
+offset_right = 944.0
+offset_bottom = 438.0
+theme_override_fonts/font = ExtResource("2_w8wr1")
+theme_override_font_sizes/font_size = 32
+text = "The shifter has been returned to containment"
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=151671349]
+libraries/ = SubResource("AnimationLibrary_q1r8t")

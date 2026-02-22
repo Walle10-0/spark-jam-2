@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b3f4bqpm5kppw"]
 
-[ext_resource type="Script" uid="uid://bvhdgi7ro77oc" path="res://scenes/tile_map_testing.gd" id="1_e586t"]
+[ext_resource type="Script" uid="uid://bvhdgi7ro77oc" path="res://script/tile_map_testing.gd" id="1_e586t"]
 [ext_resource type="TileSet" uid="uid://metf2kdmhbwo" path="res://tilemap/lab_tiles.tres" id="1_y555j"]
 [ext_resource type="PackedScene" uid="uid://cfyxbn6tnchxb" path="res://level development/map_connector_node.tscn" id="3_raivq"]
 [ext_resource type="PackedScene" uid="uid://dm3gan45uq6ih" path="res://scenes/character.tscn" id="4_b6ohh"]

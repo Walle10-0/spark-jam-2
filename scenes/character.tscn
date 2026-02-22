@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://t0vcd4iobywq" path="res://textures/UI/Shift_Selector.png" id="3_lrhn5"]
 [ext_resource type="FontFile" uid="uid://munnv1c323j5" path="res://assets/Early GameBoy.ttf" id="4_my7n2"]
 [ext_resource type="Texture2D" uid="uid://dc7b183dvp6hn" path="res://textures/missile/missile.png" id="5_dp8ca"]
+[ext_resource type="Texture2D" uid="uid://con1l78f5pkcv" path="res://textures/UI/coolblack.png" id="6_0lw5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(10, 10)
@@ -38,6 +39,58 @@ animations = [{
 "name": &"load",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_2cgup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coolblack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a5ia6"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coolblack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0dpix"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coolblack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hyy3"]
+_data = {
+&"RESET": SubResource("Animation_2cgup"),
+&"fade_in": SubResource("Animation_a5ia6"),
+&"fade_out": SubResource("Animation_0dpix")
+}
 
 [node name="RigidBody2D" type="CharacterBody2D" unique_id=515593830 node_paths=PackedStringArray("animatedSprite", "Shift_Selector", "Text_More", "Text_Less", "Interaction_Detector", "Speech_Bubble", "Speech_Timeout", "camera", "missile_thingy") groups=["Player"]]
 collision_layer = 3
@@ -144,4 +197,15 @@ position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_dp8ca")
 animation = &"empty"
 
+[node name="Fader" type="AnimationPlayer" parent="." unique_id=1531675920]
+libraries/ = SubResource("AnimationLibrary_2hyy3")
+
+[node name="Coolblack" type="Sprite2D" parent="." unique_id=35226828]
+modulate = Color(1, 1, 1, 0)
+z_index = 1000
+position = Vector2(28.5, 16.5)
+scale = Vector2(22.46875, 14.84375)
+texture = ExtResource("6_0lw5n")
+
 [connection signal="timeout" from="Speech Timer" to="." method="_on_speech_timer_timeout"]
+[connection signal="animation_finished" from="Fader" to="." method="_on_fader_animation_finished"]
