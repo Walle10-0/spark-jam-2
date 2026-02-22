@@ -361,6 +361,11 @@ func damage(damage):
 	else:
 		Health -= damage
 
+# simple heal script
+func heal():
+	if Health < 3:
+		Health += 1
+
 func death():
 	if is_dead == false:
 		is_dead = true
