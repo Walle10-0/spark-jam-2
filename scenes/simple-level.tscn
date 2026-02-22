@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://f0s1glje8vf0" path="res://assets/moving_enemy.tscn" id="4_axkj1"]
 [ext_resource type="Texture2D" uid="uid://db8jo4oqo4o1c" path="res://tilemap/Lab_Tiles.png" id="5_di67p"]
 [ext_resource type="Texture2D" uid="uid://dxev65n7cyxb5" path="res://tilemap/Lab_Wall_Left-0(1).png" id="6_pxgjo"]
-[ext_resource type="PackedScene" path="res://assets/just-a-plant.tscn" id="7_0coqw"]
+[ext_resource type="PackedScene" uid="uid://d3re65nj2pqbe" path="res://assets/just-a-plant.tscn" id="7_0coqw"]
 [ext_resource type="PackedScene" uid="uid://djjiq84af7h48" path="res://assets/pathfinding_waypoint.tscn" id="8_55htq"]
 [ext_resource type="PackedScene" uid="uid://c3fh7hvhs5e2g" path="res://assets/elevator.tscn" id="8_h5ppw"]
 
@@ -402,5 +402,5 @@ Waypoint_ID = "paw patrol"
 Sequence_ID = 2
 
 [node name="Elevator" parent="." unique_id=626916946 instance=ExtResource("8_h5ppw")]
-position = Vector2(382, -285)
-Next_Scene = "robot_hallway"
+position = Vector2(384, -321)
+Next_Scene = "vent_tutorial"
