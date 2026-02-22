@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cq7sn6umybaa3"]
+
+[ext_resource type="Script" uid="uid://cgr1h7qwgs74l" path="res://script/mainSwitcher.gd" id="1_cjsew"]
+[ext_resource type="PackedScene" uid="uid://b1jg1vnf62agn" path="res://scenes/themostepiccutsceneofalltime.tscn" id="2_x40te"]
+[ext_resource type="Script" uid="uid://7s3o6emcas5f" path="res://script/themostepiccutsceneofalltime.gd" id="3_ctgc5"]
+
+[node name="SceneSwitcher" type="Control" unique_id=705494113]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjsew")
+transitionTemp = "uid://rju0s61l6vhv"
+
+[node name="AnimationPlayer" parent="." unique_id=804770096 node_paths=PackedStringArray("switcher") instance=ExtResource("2_x40te")]
+script = ExtResource("3_ctgc5")
+switcher = NodePath("..")
+firstScene = "uid://ba4o01gashu0"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

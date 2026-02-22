@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://b1jg1vnf62agn"]
+
+[ext_resource type="SpriteFrames" uid="uid://drql2pdlo5hli" path="res://textures/alien/alien.tres" id="1_ulwa1"]
+[ext_resource type="Texture2D" uid="uid://b3cdng003mnv2" path="res://textures/animation/Scientist.png" id="2_lybk1"]
+[ext_resource type="Texture2D" uid="uid://dr5fvg30xneuc" path="res://textures/animation/Sprite-0002.png" id="2_vsg76"]
+[ext_resource type="Texture2D" uid="uid://bm6kkge7sp6yb" path="res://textures/animation/Sprite-0201.png" id="3_grdrc"]
+[ext_resource type="Texture2D" uid="uid://b0enyp5cpxq2b" path="res://textures/animation/Sprite-0101.png" id="3_yk8ft"]
+[ext_resource type="Texture2D" uid="uid://dqxqbs18l30hf" path="res://textures/animation/wow.png" id="6_q4slt"]
+
+[sub_resource type="Animation" id="Animation_ulwa1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Moonwalk_side"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AnimatedSprite2D:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AnimatedSprite2D2:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Sprite0101:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/Wow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vsg76"]
+resource_name = "cutscene1"
+length = 8.533334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5333333, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(79.75, -8), Vector2(16.995, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5333333, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Moonwalk_side", &"Alien_default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AnimatedSprite2D:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AnimatedSprite2D2:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 5.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"new_animation", &"new_animation_1"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Sprite0201:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-106, -35), Vector2(99.71, -35)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/Sprite0101:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.8, 6.2666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -74.075), Vector2(18, -6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Wow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.0666666, 3.3666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lybk1"]
+_data = {
+&"RESET": SubResource("Animation_ulwa1"),
+&"cutscene1": SubResource("Animation_vsg76")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdrc"]
+atlas = ExtResource("2_lybk1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk8ft"]
+atlas = ExtResource("2_lybk1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4slt"]
+atlas = ExtResource("2_lybk1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7c67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grdrc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk8ft")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4slt")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="AnimationPlayer" type="AnimationPlayer" unique_id=804770096]
+libraries/ = SubResource("AnimationLibrary_lybk1")
+autoplay = &"cutscene1"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2061151914]
+position = Vector2(0, -10)
+zoom = Vector2(8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1230018410]
+position = Vector2(54.43882, -8)
+sprite_frames = ExtResource("1_ulwa1")
+animation = &"Moonwalk_side"
+autoplay = "default"
+speed_scale = 3.0
+flip_h = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1003883671]
+position = Vector2(-28, -7)
+sprite_frames = SubResource("SpriteFrames_u7c67")
+animation = &"new_animation"
+
+[node name="Sprite0101" type="Sprite2D" parent="." unique_id=1957404377]
+z_index = 1
+position = Vector2(18, -74.075)
+texture = ExtResource("3_yk8ft")
+
+[node name="Sprite0201" type="Sprite2D" parent="." unique_id=615773445]
+position = Vector2(99.71, -35)
+texture = ExtResource("3_grdrc")
+
+[node name="Sprite0002" type="Sprite2D" parent="." unique_id=1904990298]
+z_index = -1
+position = Vector2(3, -13)
+scale = Vector2(0.645, 0.5)
+texture = ExtResource("2_vsg76")
+
+[node name="Wow" type="Sprite2D" parent="." unique_id=1817354222]
+position = Vector2(-28, -25)
+texture = ExtResource("6_q4slt")
