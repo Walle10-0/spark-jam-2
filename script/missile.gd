@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		body.damage(damage)
-	if body is IAmARobot:
+	if body is IAmARobot || body.get_meta("destroy", false):
 		body.queue_free()
 	explosion.emitting = true
 	fuel.emitting = false
